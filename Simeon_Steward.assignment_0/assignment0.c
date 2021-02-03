@@ -4,11 +4,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#ifdef _WIN32
-#include <Windows.h>
-#else
 #include <unistd.h>
-#endif
 
 #include "assignment0.h"
 
@@ -42,10 +38,11 @@ int main(int argc, const char* argv[] )
   printf("30");
    while(true){
     displayTable(table);
-     usleep(1000000/fps);
-    //Sleep(1000/fps);
+    
+    usleep(1000000/fps);
     table[SIZE/2][SIZE/2]++;
     bool spilled = true;
+    
     while(spilled){
       spilled = false;
       for(i=0;i<SIZE;i++){
