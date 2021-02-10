@@ -6,8 +6,10 @@
 
 #define WIDTH 80
 #define HEIGHT 21
-#define MAXROOMS 10
+#define MAXROOMS 6
 
 bool initializeMap();
 bool createRoom();
 void printMap();
+void printRoomData(int roomNumber);
+bool digTunnel(int first, int second);

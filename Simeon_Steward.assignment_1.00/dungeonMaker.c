@@ -18,11 +18,19 @@ int main(int argc, const char *argv[]) {
     //createRoom();
     numRooms=0;
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < MAXROOMS; i++) {
 //            printf("%d", i);
         createRoom();
     }
 
+    printMap();
+
+    for(int i = 0;i<numRooms;i++){
+        printRoomData(i);
+    }
+    for(int i = 0; i<numRooms-1;i++){
+        digTunnel(i,i+1);
+    }
     printMap();
 }
 
@@ -47,7 +55,8 @@ bool createRoom() {
 //    printf("x1: %d,y1: %d, xMag: %d, yMag: %d \n", x1, y1, xMag, yMag);
     for (int i = -1; i <= room1.yMag; i++) {
         for (int j = -1; j <= room1.xMag; j++) {
-            if (i + room1.y1 >= HEIGHT || i + room1.y1 <= 0 || j + room1.x1 >= WIDTH || j + room1.x1 <= 0 || !(map[i + room1.y1][j + room1.x1] == ' ')) {
+            if (i + room1.y1 >= HEIGHT || i + room1.y1 <= 0 || j + room1.x1 >= WIDTH || j + room1.x1 <= 0 ||
+                map[i + room1.y1][j + room1.x1] != ' ') {
 //                printf("%d%d%d%d%d", i + y1 >= HEIGHT, i + y1 <= 0, j + x1 >= WIDTH, j + x1 <= 0,
 //                       !(map[i + y1][j + x1] == ' '));
 //                printf("map:\'%c\'", map[i + y1][i + x1]);
@@ -63,15 +72,60 @@ bool createRoom() {
         }
     }
 
+    rooms[numRooms++] = room1;
     return true;
 
 }
 
 void printMap() {
-    for (int i = 0; i < HEIGHT; i++) {
-        for (int j = 0; j < WIDTH; j++) {
-            printf("%c", map[i][j]);
-        }
+    for (int i = -1; i <= HEIGHT; i++) {
         printf("\n");
+
+        if((i==-1)|(i==HEIGHT)){
+            printf(" ");
+            for (int j = 0; j < WIDTH; j++) {
+                printf("%d", j%10);
+            }
+        }else {
+            for (int j = -1; j <= WIDTH; j++) {
+                if((j==-1)|(j==WIDTH)){
+                    printf("%d",i%10);
+                }else {
+                    printf("%c", map[i][j]);
+                }
+            }
+
+        }
     }
+    printf("\n");
+    fflush(stdout);
+}
+void printRoomData(int roomNumber){
+    room room1 = rooms[roomNumber];
+    printf("Room %d has an x: %d y: %d xMag: %d yMag: %d\n",roomNumber,room1.x1,room1.y1,room1.xMag,room1.yMag);
+}
+bool digTunnel(int first, int second){
+    int curX = rooms[first].x1;
+    int curY = rooms[first].y1;
+    int destX = rooms[second].x1;
+    int destY = rooms[second].y1;
+    int xDelta = destX-curX;
+    int yDelta = destY-curY;
+    map[curY][curX] = first+'0';
+    map[destY][destX]= second+'0';
+    while(curX!=destX&&curY!=destY){
+//        printMap();
+        xDelta = destX-curX;
+        yDelta = destY-curY;
+      if(rand()%(abs(xDelta)+abs(yDelta))<abs(xDelta)){
+          curX += xDelta/abs(xDelta);
+      }else{
+          curY += yDelta/abs(yDelta);
+      }
+      if(map[curY][curX]==' '){
+          map[curY][curX]=first+'0';
+      }
+
+    }
+
 }
