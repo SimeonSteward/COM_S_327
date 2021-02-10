@@ -113,10 +113,9 @@ bool digTunnel(int first, int second){
     int yDelta = destY-curY;
     map[curY][curX] = first+'0';
     map[destY][destX]= second+'0';
-    while(curX!=destX&&curY!=destY){
+    while(xDelta!=0||yDelta!=0){
 //        printMap();
-        xDelta = destX-curX;
-        yDelta = destY-curY;
+
       if(rand()%(abs(xDelta)+abs(yDelta))<abs(xDelta)){
           curX += xDelta/abs(xDelta);
       }else{
@@ -125,6 +124,8 @@ bool digTunnel(int first, int second){
       if(map[curY][curX]==' '){
           map[curY][curX]=first+'0';
       }
+      xDelta = destX-curX;
+      yDelta = destY-curY;
 
     }
 
