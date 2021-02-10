@@ -13,3 +13,4 @@ bool createRoom();
 void printMap();
 void printRoomData(int roomNumber);
 bool digTunnel(int first, int second);
+bool addStairs();

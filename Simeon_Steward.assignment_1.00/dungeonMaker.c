@@ -14,7 +14,7 @@ char map[HEIGHT][WIDTH];//y,x
 int main(int argc, const char *argv[]) {
     srand(time(NULL));
     initializeMap();
-    printMap();
+//    printMap();
     //createRoom();
     numRooms=0;
 
@@ -23,14 +23,15 @@ int main(int argc, const char *argv[]) {
         createRoom();
     }
 
-    printMap();
+//    printMap();
 
-    for(int i = 0;i<numRooms;i++){
-        printRoomData(i);
-    }
+//    for(int i = 0;i<numRooms;i++){
+//        printRoomData(i);
+//    }
     for(int i = 0; i<numRooms-1;i++){
         digTunnel(i,i+1);
     }
+    addStairs();
     printMap();
 }
 
@@ -111,8 +112,8 @@ bool digTunnel(int first, int second){
     int destY = rooms[second].y1;
     int xDelta = destX-curX;
     int yDelta = destY-curY;
-    map[curY][curX] = first+'0';
-    map[destY][destX]= second+'0';
+//    map[curY][curX] = first+'0';
+//    map[destY][destX]= second+'0';
     while(xDelta!=0||yDelta!=0){
 //        printMap();
 
@@ -122,11 +123,31 @@ bool digTunnel(int first, int second){
           curY += yDelta/abs(yDelta);
       }
       if(map[curY][curX]==' '){
-          map[curY][curX]=first+'0';
+          map[curY][curX]='#';
       }
       xDelta = destX-curX;
       yDelta = destY-curY;
 
     }
 
+}
+
+bool addStairs(){
+    bool needUpStairs = true;
+    bool needDownStairs = true;
+    while(needUpStairs||needDownStairs){
+        int x = rand()%WIDTH;
+        int y = rand()%HEIGHT;
+        if(map[y][x]=='.'){
+            map[y][x]='<';
+            needUpStairs = false;
+        }
+        x = rand()%WIDTH;
+        y = rand()%HEIGHT;
+        if(map[y][x]=='.'){
+            map[y][x]='>';
+            needDownStairs = false;
+        }
+    }
+    return true;
 }
