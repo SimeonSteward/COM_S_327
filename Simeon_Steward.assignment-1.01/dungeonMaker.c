@@ -79,26 +79,35 @@ bool createRoom() {
 }
 
 void printMap() {
+  if(DEBUG){
     for (int i = -1; i <= HEIGHT; i++) {
-        printf("\n");
+      printf("\n");
 
-        if((i==-1)|(i==HEIGHT)){
-            printf(" ");
-            for (int j = 0; j < WIDTH; j++) {
-                printf("%d", j%10);
-            }
-        }else {
-            for (int j = -1; j <= WIDTH; j++) {
-                if((j==-1)|(j==WIDTH)){
-                    printf("%d",i%10);
-                }else {
-                    printf("%c", map[i][j]);
-                }
-            }
-
+      if((i==-1)|(i==HEIGHT)){
+        printf(" ");
+        for (int j = 0; j < WIDTH; j++) {
+          printf("%d", j%10);
         }
+      }else {
+        for (int j = -1; j <= WIDTH; j++) {
+          if((j==-1)|(j==WIDTH)){
+            printf("%d",i%10);
+          }else {
+            printf("%c", map[i][j]);
+          }
+        }
+
+      }
     }
-    printf("\n");
+  }else{
+    for(int i = 0; i<HEIGHT;i++){
+      printf("\n");
+      for(int j = 0; j<WIDTH;j++){
+        printf("%c", map[i][j]);
+      }
+    }
+  }
+       printf("\n");
     fflush(stdout);
 }
 void printRoomData(int roomNumber){
@@ -129,6 +138,7 @@ bool digTunnel(int first, int second){
       yDelta = destY-curY;
 
     }
+    return true;
 
 }
 

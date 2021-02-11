@@ -7,6 +7,7 @@
 #define WIDTH 80
 #define HEIGHT 21
 #define MAXROOMS 6
+#define DEBUG false
 
 bool initializeMap();
 bool createRoom();
