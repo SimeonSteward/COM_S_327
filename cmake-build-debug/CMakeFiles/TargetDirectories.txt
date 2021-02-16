@@ -1,0 +1,3 @@
+C:/Users/simeo/Desktop/spring2021/COM S 327/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/simeo/Desktop/spring2021/COM S 327/cmake-build-debug/CMakeFiles/COM_S_327.dir
+C:/Users/simeo/Desktop/spring2021/COM S 327/cmake-build-debug/CMakeFiles/edit_cache.dir

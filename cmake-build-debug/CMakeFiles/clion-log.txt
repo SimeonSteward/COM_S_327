@@ -1,0 +1,4 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/MinGW/bin/make.exe -G "CodeBlocks - MinGW Makefiles" "C:\Users\simeo\Desktop\spring2021\COM S 327"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/simeo/Desktop/spring2021/COM S 327/cmake-build-debug
