@@ -1,11 +1,19 @@
 #include "dungeonMaker.h"
 
 typedef struct room{
-int x1;
-int y1;
-int xMag;
-int yMag;
+int8_t x1;
+int8_t y1;
+int8_t xMag;
+int8_t yMag;
 }room;
+
+struct upStair{
+  int8_t x,y;
+}
+
+struct downStair{
+  int8_t x,y;
+}
 
 struct pc{
   int8_t x,y;
@@ -13,7 +21,7 @@ struct pc{
 
 
 room rooms[MAXROOMS];
-int numRooms;
+int16_t numRooms;
 uint8_t hardness[HEIGHT][WIDTH];
 char map[HEIGHT][WIDTH];//y,x
 int main(int argc, const char *argv[]) {
@@ -55,6 +63,36 @@ bool loadMap(char * path){
   size = be32toh(size);
   fread(&pc.x,1,1,f);
   fread(&pc.y,1,1,f);
+  fread(hardness,1,1680,f);
+  fread(&numRooms,2,1,f);
+  numRooms = be16toh(numRooms);
+  rooms * = malloc(4*numRooms);
+  for(int i = 0;i<numRooms;i++){
+    fread(&(rooms[i].x1),1,1,f);
+    fread(&(rooms[i].y1),1,1,f);
+    fread(&(rooms[i].xMag),1,1,f);
+    fread(&(rooms[i].yMag),1,1,f);
+  }
+  int16_t numUp;
+  fread(&numUp,2,1,f);
+  numUp = be16toh(numUp);
+  
+  upStair * = malloc(sizeof(upStair)*numUp);
+  for(int i = 0; i<numUp;i++){
+    fread((&upStair[i]).x,1,1,f);
+    fread((&upStair[i]).y,1,1,f);
+  }
+
+  int16_t numDown;
+  fread(&numDown,2,1,f);
+  numDown = be16toh(numDown);
+  
+  downStair * = malloc(sizeof(downStair)*numDown);
+
+  for(int i = 0; i<numDown;i++){
+    fread((&downStair[i]).x,1,1,f);
+    fread((&downStair[i]).y,1,1,f);
+  }
 
 }
 
