@@ -1,12 +1,5 @@
 #include "dungeonMaker.h"
 
-typedef struct room{
-int8_t x1;
-int8_t y1;
-int8_t xMag;
-int8_t yMag;
-}room;
-
 typedef struct upStair{
   int8_t x,y;
 }upStair;
@@ -30,6 +23,7 @@ char map[HEIGHT][WIDTH];//y,x
 
 
 int main(int argc, const char *argv[]) {
+  srand(time(NULL));
   bool saveMode;
   bool loadMode;
   if(argc>1){
@@ -40,7 +34,15 @@ int main(int argc, const char *argv[]) {
     saveMode = saveMode || !strcmp(argv[2],"--save");
     loadMode = loadMode || !strcmp(argv[2],"--load");
   }
-    srand(time(NULL));
+  char * home = getenv("HOME");
+  char * game_dir = ".rlg327";
+  char * save_file = "dungeon";
+  char * path = malloc(strlen(home)+strlen(game_dir)+strlen(save_file)+2+1);
+  sprintf(path,"%s/%s/%s",home,game_dir,save_file);
+
+  if(loadMode){
+    loadMap(path);
+  }else{
     initializeMap();
     numRooms=0;
 
@@ -53,7 +55,8 @@ int main(int argc, const char *argv[]) {
         digTunnel(i,i+1);
     }
     addStairs();
-    printMap();
+  }
+  printMap();
 }
 
 bool loadMap(char * path){
@@ -100,6 +103,7 @@ bool loadMap(char * path){
     fread(&(downStairs[i].x),1,1,f);
     fread(&(downStairs[i].y),1,1,f);
   }
+  
 
   return true;
 
@@ -134,6 +138,7 @@ bool createRoom() {
         }
     }
     buildRoom(room1);
+    rooms[numRooms++] = room1;
        return true;
 
 }
@@ -146,7 +151,7 @@ bool buildRoom(room room1){
     }
   }
 
-  rooms[numRooms++] = room1;
+  return true;
  
 }
 
