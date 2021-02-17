@@ -7,40 +7,48 @@ int8_t xMag;
 int8_t yMag;
 }room;
 
-struct upStair{
+typedef struct upStair{
   int8_t x,y;
-}
+}upStair;
 
-struct downStair{
+
+
+typedef struct downStair{
   int8_t x,y;
-}
+}downStair;
 
 struct pc{
   int8_t x,y;
 } pc;
 
 
-room rooms[MAXROOMS];
+room* rooms;
+
 int16_t numRooms;
-uint8_t hardness[HEIGHT][WIDTH];
+u_int8_t hardness[HEIGHT][WIDTH];
 char map[HEIGHT][WIDTH];//y,x
+
+
 int main(int argc, const char *argv[]) {
+  bool saveMode;
+  bool loadMode;
+  if(argc>1){
+    saveMode = !strcmp(argv[1],"--save");
+    loadMode = !strcmp(argv[1],"--load");
+  }
+  if(argc>2){
+    saveMode = saveMode || !strcmp(argv[2],"--save");
+    loadMode = loadMode || !strcmp(argv[2],"--load");
+  }
     srand(time(NULL));
     initializeMap();
-//    printMap();
-    //createRoom();
     numRooms=0;
 
+    rooms =(room*) malloc(4*MAXROOMS);
     for (int i = 0; i < MAXROOMS; i++) {
-//            printf("%d", i);
         createRoom();
     }
 
-//    printMap();
-
-//    for(int i = 0;i<numRooms;i++){
-//        printRoomData(i);
-//    }
     for(int i = 0; i<numRooms-1;i++){
         digTunnel(i,i+1);
     }
@@ -54,7 +62,7 @@ bool loadMap(char * path){
 
   char semantic[13];
   semantic[12] = '\0';
-  fread(semantic, 1,12,);
+  fread(semantic, 1,12,f);
   int version;
   fread(&version,4,1,f);
   version = be32toh(version);
@@ -66,7 +74,7 @@ bool loadMap(char * path){
   fread(hardness,1,1680,f);
   fread(&numRooms,2,1,f);
   numRooms = be16toh(numRooms);
-  rooms * = malloc(4*numRooms);
+  rooms = (room*) malloc(4*numRooms);
   for(int i = 0;i<numRooms;i++){
     fread(&(rooms[i].x1),1,1,f);
     fread(&(rooms[i].y1),1,1,f);
@@ -77,26 +85,28 @@ bool loadMap(char * path){
   fread(&numUp,2,1,f);
   numUp = be16toh(numUp);
   
-  upStair * = malloc(sizeof(upStair)*numUp);
+  upStair * upStairs = (upStair*)malloc(2*numUp);
   for(int i = 0; i<numUp;i++){
-    fread((&upStair[i]).x,1,1,f);
-    fread((&upStair[i]).y,1,1,f);
+    fread(&(upStairs[i].x),1,1,f);
+    fread(&(upStairs[i].y),1,1,f);
   }
 
   int16_t numDown;
   fread(&numDown,2,1,f);
   numDown = be16toh(numDown);
   
-  downStair * = malloc(sizeof(downStair)*numDown);
-
+  downStair * downStairs = (downStair*)malloc(2*numDown);
   for(int i = 0; i<numDown;i++){
-    fread((&downStair[i]).x,1,1,f);
-    fread((&downStair[i]).y,1,1,f);
+    fread(&(downStairs[i].x),1,1,f);
+    fread(&(downStairs[i].y),1,1,f);
   }
+
+  return true;
 
 }
 
 bool saveMap(char * path){
+  return true;
 }
 bool initializeMap() {
     int i,j;
@@ -114,32 +124,30 @@ bool createRoom() {
     room1.y1 = rand() % HEIGHT;
     room1.xMag = rand()%10+4;
     room1.yMag = rand()%10+3;
-//    int xMag = 4;
-//    int yMag = 4;
-//    printf("x1: %d,y1: %d, xMag: %d, yMag: %d \n", x1, y1, xMag, yMag);
     for (int i = -1; i <= room1.yMag; i++) {
         for (int j = -1; j <= room1.xMag; j++) {
             if (i + room1.y1 >= HEIGHT || i + room1.y1 <= 0 || j + room1.x1 >= WIDTH || j + room1.x1 <= 0 ||
                 map[i + room1.y1][j + room1.x1] != ' ') {
-//                printf("%d%d%d%d%d", i + y1 >= HEIGHT, i + y1 <= 0, j + x1 >= WIDTH, j + x1 <= 0,
-//                       !(map[i + y1][j + x1] == ' '));
-//                printf("map:\'%c\'", map[i + y1][i + x1]);
-//                printf("Failed i:%d,j%d ", i, j);
                 createRoom();
                 return false;
             }
         }
     }
-    for (int i = 0; i < room1.yMag; i++) {
-        for (int j = 0; j < room1.xMag; j++) {
-            map[i + room1.y1][j + room1.x1] = '.';
-            hardness[i + room1.y1][j + room1.x1] = 0;
-        }
+    buildRoom(room1);
+       return true;
+
+}
+
+bool buildRoom(room room1){
+  for (int i = 0; i < room1.yMag; i++) {
+    for (int j = 0; j < room1.xMag; j++) {
+      map[i + room1.y1][j + room1.x1] = '.';
+      hardness[i + room1.y1][j + room1.x1] = 0;
     }
+  }
 
-    rooms[numRooms++] = room1;
-    return true;
-
+  rooms[numRooms++] = room1;
+ 
 }
 
 void printMap() {
