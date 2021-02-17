@@ -7,9 +7,14 @@ int xMag;
 int yMag;
 }room;
 
+struct pc{
+  int8_t x,y;
+} pc;
+
+
 room rooms[MAXROOMS];
 int numRooms;
-
+uint8_t hardness[HEIGHT][WIDTH];
 char map[HEIGHT][WIDTH];//y,x
 int main(int argc, const char *argv[]) {
     srand(time(NULL));
@@ -35,6 +40,26 @@ int main(int argc, const char *argv[]) {
     printMap();
 }
 
+bool loadMap(char * path){
+
+  FILE *f = fopen(path, "r");
+
+  char semantic[13];
+  semantic[12] = '\0';
+  fread(semantic, 1,12,);
+  int version;
+  fread(&version,4,1,f);
+  version = be32toh(version);
+  int size;
+  fread(&size, 4, 1, f);
+  size = be32toh(size);
+  fread(&pc.x,1,1,f);
+  fread(&pc.y,1,1,f);
+
+}
+
+bool saveMap(char * path){
+}
 bool initializeMap() {
     int i,j;
     for (i=0; i < HEIGHT; i++) {
@@ -70,6 +95,7 @@ bool createRoom() {
     for (int i = 0; i < room1.yMag; i++) {
         for (int j = 0; j < room1.xMag; j++) {
             map[i + room1.y1][j + room1.x1] = '.';
+            hardness[i + room1.y1][j + room1.x1] = 0;
         }
     }
 
@@ -133,6 +159,7 @@ bool digTunnel(int first, int second){
       }
       if(map[curY][curX]==' '){
           map[curY][curX]='#';
+          hardness[curY][curX]=0;
       }
       xDelta = destX-curX;
       yDelta = destY-curY;
