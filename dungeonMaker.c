@@ -14,8 +14,8 @@ struct pc{
   int8_t x,y;
 } pc;
 
-int16_t numUp;
-int16_t numDown;
+int16_t numUp = 0;
+int16_t numDown = 0;
 
 room* rooms;
 upStair* upStairs;
@@ -27,16 +27,15 @@ char map[HEIGHT][WIDTH];//y,x
 
 int main(int argc, const char *argv[]) {
   srand(time(NULL));
-  bool saveMode;
-  bool loadMode;
-  if(argc>1){
-    saveMode = !strcmp(argv[1],"--save");
-    loadMode = !strcmp(argv[1],"--load");
+  printf("hello");
+  bool saveMode = false;
+  bool loadMode = false;
+  for(int i = 1; i<argc;i++){
+    saveMode = !strcmp(argv[i],"--save");
+    loadMode = !strcmp(argv[i],"--load");
   }
-  if(argc>2){
-    saveMode = saveMode || !strcmp(argv[2],"--save");
-    loadMode = loadMode || !strcmp(argv[2],"--load");
-  }
+  printf("loadMode: %d, saveMode %d",loadMode,saveMode);
+
   char * home = getenv("HOME");
   char * game_dir = ".rlg327";
   char * save_file = "dungeon";
@@ -60,6 +59,9 @@ int main(int argc, const char *argv[]) {
     addStairs();
   }
   printMap();
+  if(saveMode){
+    saveMap(path);
+  }
 }
 
 bool loadMap(char * path){
@@ -71,10 +73,12 @@ bool loadMap(char * path){
 
   }
 
+  printf("Semantic");
   char semantic[13];
   semantic[12] = '\0';
   fread(semantic, 1,12,f);
   int version;
+  printf("version");
   fread(&version,4,1,f);
   version = be32toh(version);
   int size;
@@ -181,6 +185,12 @@ bool initializeMap() {
     for (i=0; i < HEIGHT; i++) {
         for (j = 0; j < WIDTH; j++) {
             map[i][j] = ' ';
+            if(i==0||j==0||i==HEIGHT-1||j==WIDTH-1){
+              hardness[i][j] = 255;
+            }else{
+              hardness[i][j] = 2;
+            }
+
        }
     }
     return true;
@@ -287,17 +297,31 @@ bool digTunnel(int first, int second){
 bool addStairs(){
     bool needUpStairs = true;
     bool needDownStairs = true;
-    while(needUpStairs||needDownStairs){
+    upStairs = (upStair *)malloc(2);
+    downStairs =(downStair *)malloc(2);
+    while(needUpStairs){
         int x = rand()%WIDTH;
         int y = rand()%HEIGHT;
         if(map[y][x]=='.'){
             map[y][x]='<';
+            numUp++;
+            upStair newUpStair;
+            newUpStair.x = x;
+            newUpStair.y = y;
+            upStairs[0] = newUpStair;
             needUpStairs = false;
         }
-        x = rand()%WIDTH;
-        y = rand()%HEIGHT;
+    }
+    while(needDownStairs){
+        int x = rand()%WIDTH;
+        int y = rand()%HEIGHT;
         if(map[y][x]=='.'){
             map[y][x]='>';
+            numDown++;
+            downStair  newDownStair;
+            newDownStair.x=x;
+            newDownStair.y=y;
+            downStairs[0] = newDownStair;
             needDownStairs = false;
         }
     }
