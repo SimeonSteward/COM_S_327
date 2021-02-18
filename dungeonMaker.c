@@ -162,6 +162,12 @@ bool saveMap(char * path){
     fwrite(&(upStairs[i].x),1,1,f);
     fwrite(&(upStairs[i].y),1,1,f);
   }
+  numDown = htobe16(numDown);
+  fwrite(&numDown,2,1,f);
+  for(int i = 0;i<numDown;i++){
+    fwrite(&(downStairs[i].x),1,1,f);
+    fwrite(&(downStairs[i].y),1,1,f);
+  }
 
   
 
