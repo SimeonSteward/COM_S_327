@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/COM_S_327.dir/dungeonMaker.c.obj"
-  "COM_S_327.exe"
-  "COM_S_327.exe.manifest"
+  "CMakeFiles/COM_S_327.dir/dungeonMaker.c.o"
+  "COM_S_327"
   "COM_S_327.pdb"
-  "libCOM_S_327.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

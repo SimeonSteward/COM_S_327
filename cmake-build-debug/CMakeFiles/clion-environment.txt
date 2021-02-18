@@ -1,4 +1,3 @@
-ToolSet: 5.0 (local)@C:\MinGW
-Options: 
+ToolSet: 1.0 (local)Options: 
 
-Options:-DCMAKE_MAKE_PROGRAM=C:/MinGW/bin/make.exe
+Options:

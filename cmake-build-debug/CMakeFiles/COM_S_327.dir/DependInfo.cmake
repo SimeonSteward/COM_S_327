@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/simeo/Desktop/spring2021/COM S 327/dungeonMaker.c" "C:/Users/simeo/Desktop/spring2021/COM S 327/cmake-build-debug/CMakeFiles/COM_S_327.dir/dungeonMaker.c.obj"
+  "/home/student/code/COM_S_327/dungeonMaker.c" "/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles/COM_S_327.dir/dungeonMaker.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

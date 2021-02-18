@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/simeo/Desktop/spring2021/COM S 327/dungeonMaker.c
+/home/student/code/COM_S_327/dungeonMaker.c
 dungeonMaker.h
-C:/Users/simeo/Desktop/spring2021/COM S 327/dungeonMaker.h
+/home/student/code/COM_S_327/dungeonMaker.h
 
-C:/Users/simeo/Desktop/spring2021/COM S 327/dungeonMaker.h
+/home/student/code/COM_S_327/dungeonMaker.h
 stdio.h
 -
 stdbool.h
@@ -20,5 +20,7 @@ stdlib.h
 time.h
 -
 string.h
+-
+endian.h
 -
 

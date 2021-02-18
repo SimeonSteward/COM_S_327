@@ -27,14 +27,14 @@ char map[HEIGHT][WIDTH];//y,x
 
 int main(int argc, const char *argv[]) {
   srand(time(NULL));
-  printf("hello");
+
   bool saveMode = false;
   bool loadMode = false;
   for(int i = 1; i<argc;i++){
     saveMode = !strcmp(argv[i],"--save");
     loadMode = !strcmp(argv[i],"--load");
   }
-  printf("loadMode: %d, saveMode %d",loadMode,saveMode);
+
 
   char * home = getenv("HOME");
   char * game_dir = ".rlg327";
@@ -73,18 +73,18 @@ bool loadMap(char * path){
 
   }
 
-  printf("Semantic");
+
   char semantic[13];
   semantic[12] = '\0';
   fread(semantic, 1,12,f);
   int version;
-  printf("version");
+
   fread(&version,4,1,f);
   version = be32toh(version);
   int size;
   fread(&size, 4, 1, f);
   size = be32toh(size);
-  printf("Size: %d",size);
+
   fread(&pc.x,1,1,f);
   fread(&pc.y,1,1,f);
   fread(hardness,1,1680,f);
@@ -92,18 +92,18 @@ bool loadMap(char * path){
   numRooms = be16toh(numRooms);
   rooms = (room*) malloc(4*numRooms);
   for(int i = 0;i<numRooms;i++){
-    fread(&(rooms[i].x1),1,1,f);
-    fread(&(rooms[i].y1),1,1,f);
-    fread(&(rooms[i].xMag),1,1,f);
-    fread(&(rooms[i].yMag),1,1,f);
+    fread(&(rooms[i].x1),sizeof(rooms[0].x1),1,f);
+    fread(&(rooms[i].y1),sizeof(rooms[0].y1),1,f);
+    fread(&(rooms[i].xMag),sizeof(rooms[0].xMag),1,f);
+    fread(&(rooms[i].yMag),sizeof(rooms[0].yMag),1,f);
   }
   fread(&numUp,2,1,f);
   numUp = be16toh(numUp);
   
-  upStairs = (upStair*)malloc(2*numUp);
+  upStairs = (upStair*)malloc(sizeof(upStair)*numUp);
   for(int i = 0; i<numUp;i++){
-    fread(&(upStairs[i].x),1,1,f);
-    fread(&(upStairs[i].y),1,1,f);
+    fread(&(upStairs[i].x),sizeof(upStairs[0].x),1,f);
+    fread(&(upStairs[i].y),sizeof(upStairs[0].y),1,f);
   }
 
   fread(&numDown,2,1,f);
@@ -126,7 +126,7 @@ bool loadMap(char * path){
   }
   for(int i = 0;i<numUp;i++){
     map[upStairs[i].y][upStairs[i].x] = '<';
-  } 
+  }
   for(int i = 0; i<numDown;i++){
     map[downStairs[i].y][downStairs[i].x] = '>';
   }
@@ -146,28 +146,29 @@ bool saveMap(char * path){
   u_int32_t  version = 0;
   version = htobe32(version);
   fwrite(&version,4,1,f);
-  u_int32_t size = 0;//TODO
+  u_int32_t size = 1708+numRooms*4+numUp*2+numDown*2;
   size = htobe32(size);
   fwrite(&size,4,1,f);
   fwrite(&pc.x,1,1,f);
   fwrite(&pc.y,1,1,f);
   fwrite(hardness,1,1680,f);
-  numRooms = htobe16(numRooms);
-  fwrite(&numRooms,2,1,f);
+  int16_t numRoomsTemp = htobe16(numRooms);
+  fwrite(&numRoomsTemp,2,1,f);
   for(int i = 0;i<numRooms;i++){
     fwrite(&(rooms[i].x1),1,1,f);
     fwrite(&(rooms[i].y1),1,1,f);
     fwrite(&(rooms[i].xMag),1,1,f);
     fwrite(&(rooms[i].yMag),1,1,f);
   }
-  numUp = htobe16(numUp);
-  fwrite(&numUp,2,1,f);
+  int16_t numUpTemp = htobe16(numUp);
+  fwrite(&numUpTemp,sizeof(numUpTemp),1,f);
   for(int i = 0;i<numUp;i++){
-    fwrite(&(upStairs[i].x),1,1,f);
-    fwrite(&(upStairs[i].y),1,1,f);
+    fwrite(&(upStairs[i].x),sizeof(upStairs[0].x),1,f);
+    fwrite(&(upStairs[i].y),sizeof(upStairs[0].y),1,f);
   }
   numDown = htobe16(numDown);
   fwrite(&numDown,2,1,f);
+  numDown = be16toh(numDown);
   for(int i = 0;i<numDown;i++){
     fwrite(&(downStairs[i].x),1,1,f);
     fwrite(&(downStairs[i].y),1,1,f);
