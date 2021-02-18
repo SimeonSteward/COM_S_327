@@ -8,7 +8,7 @@
 #define WIDTH 80
 #define HEIGHT 21
 #define MAXROOMS 6
-#define DEBUG false
+#define DEBUG true
 
 
 typedef struct room{
@@ -18,6 +18,8 @@ typedef struct room{
   int8_t yMag;
 }room;
 
+bool loadMap(char * path);
+bool saveMap(char * path);
 bool initializeMap();
 bool createRoom();
 bool buildRoom(room room1);
