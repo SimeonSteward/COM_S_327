@@ -27,18 +27,22 @@ char map[HEIGHT][WIDTH];//y,x
 
 int main(int argc, const char *argv[]) {
   srand(time(NULL));
-
+  char * home = getenv("HOME");
+  char * game_dir = ".rlg327";
+  const char * save_file = "dungeon";
   bool saveMode = false;
   bool loadMode = false;
   for(int i = 1; i<argc;i++){
-    saveMode = !strcmp(argv[i],"--save");
-    loadMode = !strcmp(argv[i],"--load");
+    saveMode = saveMode||!strcmp(argv[i],"--save");
+    loadMode = loadMode||!strcmp(argv[i],"--load");
+    if((argc>i+1)&&(!strcmp(argv[i],"--load")||!strcmp(argv[i],"--save"))){
+        save_file = argv[i+1];
+    }
   }
 
 
-  char * home = getenv("HOME");
-  char * game_dir = ".rlg327";
-  char * save_file = "dungeon";
+
+
   char * path = malloc(strlen(home)+strlen(game_dir)+strlen(save_file)+2+1);
   sprintf(path,"%s/%s/%s",home,game_dir,save_file);
   initializeMap();
@@ -56,7 +60,10 @@ int main(int argc, const char *argv[]) {
     for(int i = 0; i<numRooms-1;i++){
         digTunnel(i,i+1);
     }
+    addPlayerCharacter();
+
     addStairs();
+
   }
   printMap();
   if(saveMode){
@@ -245,7 +252,11 @@ void printMap() {
           if((j==-1)|(j==WIDTH)){
             printf("%d",i%10);
           }else {
-            printf("%c", map[i][j]);
+              if(pc.x==j&&pc.y==i){
+                  printf("@");
+              }else{
+                  printf("%c", map[i][j]);
+              }
           }
         }
 
@@ -255,7 +266,12 @@ void printMap() {
     for(int i = 0; i<HEIGHT;i++){
       printf("\n");
       for(int j = 0; j<WIDTH;j++){
+          if(pc.x==j&&pc.y==i){
+              printf("@");
+          }else{
         printf("%c", map[i][j]);
+          }
+
       }
     }
   }
@@ -327,4 +343,17 @@ bool addStairs(){
         }
     }
     return true;
+}
+int addPlayerCharacter(){
+    bool needPlayer = true;
+    while(needPlayer){
+        int8_t x = rand()%WIDTH;
+        int8_t y = rand()%HEIGHT;
+        if(hardness[y][x]==0){
+            pc.x=x;
+            pc.y=y;
+            needPlayer = false;
+            return true;
+        }
+    }
 }

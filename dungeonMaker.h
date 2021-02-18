@@ -8,7 +8,7 @@
 #define WIDTH 80
 #define HEIGHT 21
 #define MAXROOMS 6
-#define DEBUG true
+#define DEBUG false
 
 
 typedef struct room{
@@ -27,4 +27,5 @@ void printMap();
 void printRoomData(int roomNumber);
 bool digTunnel(int first, int second);
 bool addStairs();
+int addPlayerCharacter();
 
