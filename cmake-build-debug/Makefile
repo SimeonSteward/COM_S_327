@@ -143,32 +143,32 @@ COM_S_327/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/build
 .PHONY : COM_S_327/fast
 
-dungeonMaker.o: dungeonMaker.c.o
+rlg327.o: rlg327.c.o
 
-.PHONY : dungeonMaker.o
+.PHONY : rlg327.o
 
 # target to build an object file
-dungeonMaker.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/dungeonMaker.c.o
-.PHONY : dungeonMaker.c.o
+rlg327.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/rlg327.c.o
+.PHONY : rlg327.c.o
 
-dungeonMaker.i: dungeonMaker.c.i
+rlg327.i: rlg327.c.i
 
-.PHONY : dungeonMaker.i
+.PHONY : rlg327.i
 
 # target to preprocess a source file
-dungeonMaker.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/dungeonMaker.c.i
-.PHONY : dungeonMaker.c.i
+rlg327.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/rlg327.c.i
+.PHONY : rlg327.c.i
 
-dungeonMaker.s: dungeonMaker.c.s
+rlg327.s: rlg327.c.s
 
-.PHONY : dungeonMaker.s
+.PHONY : rlg327.s
 
 # target to generate assembly for a file
-dungeonMaker.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/dungeonMaker.c.s
-.PHONY : dungeonMaker.c.s
+rlg327.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/rlg327.c.s
+.PHONY : rlg327.c.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... COM_S_327"
-	@echo "... dungeonMaker.o"
-	@echo "... dungeonMaker.i"
-	@echo "... dungeonMaker.s"
+	@echo "... rlg327.o"
+	@echo "... rlg327.i"
+	@echo "... rlg327.s"
 .PHONY : help
 
 

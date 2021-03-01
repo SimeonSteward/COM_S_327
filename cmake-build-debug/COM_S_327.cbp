@@ -76,10 +76,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/student/code/COM_S_327/dungeonMaker.c">
-			<Option target="COM_S_327"/>
-		</Unit>
-		<Unit filename="/home/student/code/COM_S_327/dungeonMaker.h">
+		<Unit filename="/home/student/code/COM_S_327/rlg327.c">
 			<Option target="COM_S_327"/>
 		</Unit>
 		<Unit filename="/home/student/code/COM_S_327/CMakeLists.txt">

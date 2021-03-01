@@ -77,27 +77,27 @@ include CMakeFiles/COM_S_327.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/COM_S_327.dir/flags.make
 
-CMakeFiles/COM_S_327.dir/dungeonMaker.c.o: CMakeFiles/COM_S_327.dir/flags.make
-CMakeFiles/COM_S_327.dir/dungeonMaker.c.o: ../dungeonMaker.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/COM_S_327.dir/dungeonMaker.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/dungeonMaker.c.o   -c /home/student/code/COM_S_327/dungeonMaker.c
+CMakeFiles/COM_S_327.dir/rlg327.c.o: CMakeFiles/COM_S_327.dir/flags.make
+CMakeFiles/COM_S_327.dir/rlg327.c.o: ../rlg327.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/COM_S_327.dir/rlg327.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/rlg327.c.o   -c /home/student/code/COM_S_327/rlg327.c
 
-CMakeFiles/COM_S_327.dir/dungeonMaker.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/dungeonMaker.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/dungeonMaker.c > CMakeFiles/COM_S_327.dir/dungeonMaker.c.i
+CMakeFiles/COM_S_327.dir/rlg327.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/rlg327.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/rlg327.c > CMakeFiles/COM_S_327.dir/rlg327.c.i
 
-CMakeFiles/COM_S_327.dir/dungeonMaker.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/dungeonMaker.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/dungeonMaker.c -o CMakeFiles/COM_S_327.dir/dungeonMaker.c.s
+CMakeFiles/COM_S_327.dir/rlg327.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/rlg327.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/rlg327.c -o CMakeFiles/COM_S_327.dir/rlg327.c.s
 
 # Object files for target COM_S_327
 COM_S_327_OBJECTS = \
-"CMakeFiles/COM_S_327.dir/dungeonMaker.c.o"
+"CMakeFiles/COM_S_327.dir/rlg327.c.o"
 
 # External object files for target COM_S_327
 COM_S_327_EXTERNAL_OBJECTS =
 
-COM_S_327: CMakeFiles/COM_S_327.dir/dungeonMaker.c.o
+COM_S_327: CMakeFiles/COM_S_327.dir/rlg327.c.o
 COM_S_327: CMakeFiles/COM_S_327.dir/build.make
 COM_S_327: CMakeFiles/COM_S_327.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable COM_S_327"

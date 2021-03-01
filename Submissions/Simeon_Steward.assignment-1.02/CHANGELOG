@@ -1,0 +1,9 @@
+    2/18/21 5:09pm added player character and prepped for submission 1.02
+    2/17/21 10:15pm finished save and load functionality still need to do further testing
+    2/17/21 7:06pm now renders loaded files, add some save functionality
+    2/17/21 10:41pm finished load function, still need to render it
+    2/16/21 10:23pm added some load functionality, added hardness
+    2/10/21 5:26pm fixed digger bug, added stairCase
+    2/10/21 4:13pm made buggy tunnel digger
+    2/8/21 10:47pm debugged room function,no known bugs
+	2/8/21 5:30pm Got started, made Initialize map, create room function, bug where program just stops running without dumping anything to the console
