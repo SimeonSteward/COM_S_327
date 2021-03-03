@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/COM_S_327.dir/rlg327.c.o  -o COM_S_327 
+/usr/bin/cc -g   CMakeFiles/COM_S_327.dir/rlg327.c.o CMakeFiles/COM_S_327.dir/heap.c.o  -o COM_S_327 

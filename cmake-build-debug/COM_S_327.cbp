@@ -76,6 +76,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/student/code/COM_S_327/heap.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/heap.h">
+			<Option target="COM_S_327"/>
+		</Unit>
 		<Unit filename="/home/student/code/COM_S_327/rlg327.c">
 			<Option target="COM_S_327"/>
 		</Unit>

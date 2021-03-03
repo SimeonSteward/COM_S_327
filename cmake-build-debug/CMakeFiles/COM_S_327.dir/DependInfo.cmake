@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/student/code/COM_S_327/heap.c" "/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles/COM_S_327.dir/heap.c.o"
   "/home/student/code/COM_S_327/rlg327.c" "/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles/COM_S_327.dir/rlg327.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

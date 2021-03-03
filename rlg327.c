@@ -1,3 +1,6 @@
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "readability-redundant-control-flow"
+#pragma ide diagnostic ignored "cert-msc50-cpp"
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -1009,7 +1012,8 @@ static uint32_t initializeMonsters(dungeon_t *d,int numMonsters){
     }
   }
   numMonsters = (numMonsters > numSpawnSpaces) ? numMonsters : numSpawnSpaces;
-  for(int i =0;i<numMonsters;i++){
+    int currentRoomNumber = 0;
+    for(int i =0;i<numMonsters;i++){
     npc_t newMonster;
     newMonster.monster_type = rand()&0xf;
     character_t newCharacter;
@@ -1021,7 +1025,7 @@ static uint32_t initializeMonsters(dungeon_t *d,int numMonsters){
     newCharacter.speed = rand()%15+5;
     newCharacter.x = 255;
     newCharacter.y = 255;
-    int currentRoomNumber = 0;
+
     while(newCharacter.x==255){
       currentRoomNumber %= d->num_rooms;
       if(!pc_in_room(d,currentRoomNumber)){
@@ -1035,6 +1039,7 @@ static uint32_t initializeMonsters(dungeon_t *d,int numMonsters){
           d->characters[newCharacter.y][newCharacter.x] = &newCharacter;
         }
       }
+      currentRoomNumber++;
     }
   }
   return 0;
@@ -1141,6 +1146,8 @@ int write_dungeon_map(dungeon_t *d, FILE *f)
   return 0;
 }
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "cert-str34-c"
 int write_rooms(dungeon_t *d, FILE *f)
 {
   uint32_t i;
@@ -1162,6 +1169,7 @@ int write_rooms(dungeon_t *d, FILE *f)
 
   return 0;
 }
+#pragma clang diagnostic pop
 
 uint16_t count_up_stairs(dungeon_t *d)
 {
@@ -1385,6 +1393,8 @@ int read_stairs(dungeon_t *d, FILE *f)
   return 0;
 }
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "cert-str34-c"
 int read_rooms(dungeon_t *d, FILE *f)
 {
   uint32_t i;
@@ -1442,6 +1452,7 @@ int read_rooms(dungeon_t *d, FILE *f)
 
   return 0;
 }
+#pragma clang diagnostic pop
 
 int read_dungeon(dungeon_t *d, char *file)
 {
@@ -1790,3 +1801,5 @@ int main(int argc, char *argv[])
 
   return 0;
 }
+
+#pragma clang diagnostic pop

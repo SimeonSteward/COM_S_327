@@ -143,6 +143,33 @@ COM_S_327/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/build
 .PHONY : COM_S_327/fast
 
+heap.o: heap.c.o
+
+.PHONY : heap.o
+
+# target to build an object file
+heap.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/heap.c.o
+.PHONY : heap.c.o
+
+heap.i: heap.c.i
+
+.PHONY : heap.i
+
+# target to preprocess a source file
+heap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/heap.c.i
+.PHONY : heap.c.i
+
+heap.s: heap.c.s
+
+.PHONY : heap.s
+
+# target to generate assembly for a file
+heap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/heap.c.s
+.PHONY : heap.c.s
+
 rlg327.o: rlg327.c.o
 
 .PHONY : rlg327.o
@@ -179,6 +206,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... COM_S_327"
+	@echo "... heap.o"
+	@echo "... heap.i"
+	@echo "... heap.s"
 	@echo "... rlg327.o"
 	@echo "... rlg327.i"
 	@echo "... rlg327.s"

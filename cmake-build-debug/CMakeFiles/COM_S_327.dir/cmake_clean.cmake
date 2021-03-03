@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/COM_S_327.dir/heap.c.o"
   "CMakeFiles/COM_S_327.dir/rlg327.c.o"
   "COM_S_327"
   "COM_S_327.pdb"
