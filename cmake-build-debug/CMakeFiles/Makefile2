@@ -94,12 +94,12 @@ clean: CMakeFiles/COM_S_327.dir/clean
 CMakeFiles/COM_S_327.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target COM_S_327"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target COM_S_327"
 .PHONY : CMakeFiles/COM_S_327.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/COM_S_327.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/code/COM_S_327/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/code/COM_S_327/cmake-build-debug/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/COM_S_327.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/code/COM_S_327/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/COM_S_327.dir/rule

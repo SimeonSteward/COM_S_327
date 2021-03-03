@@ -1014,19 +1014,20 @@ static uint32_t initializeMonsters(dungeon_t *d,int numMonsters){
   numMonsters = (numMonsters > numSpawnSpaces) ? numMonsters : numSpawnSpaces;
     int currentRoomNumber = 0;
     for(int i =0;i<numMonsters;i++){
-    npc_t newMonster;
-    newMonster.monster_type = rand()&0xf;
-    character_t newCharacter;
-    newCharacter.npc = &newMonster;
-    newCharacter.pc = NULL;
-    newCharacter.next_turn = 0;
-    newCharacter.sequence_num = i+2;
-    newCharacter.isAlive = 1;
-    newCharacter.speed = rand()%15+5;
-    newCharacter.x = 255;
-    newCharacter.y = 255;
+        npc_t *newMonster;
+        newMonster = malloc(sizeof(npc_t));
+        newMonster->monster_type = rand()&0xf;
+        character_t *newCharacter = malloc(sizeof newCharacter);
+        newCharacter->npc = newMonster;
+    newCharacter->pc = NULL;
+    newCharacter->next_turn = 0;
+    newCharacter->sequence_num = i+2;
+    newCharacter->isAlive = 1;
+    newCharacter->speed = rand()%15+5;
+    newCharacter->x = 255;
+    newCharacter->y = 255;
 
-    while(newCharacter.x==255){
+    while(newCharacter->x==255){
       currentRoomNumber %= d->num_rooms;
       if(!pc_in_room(d,currentRoomNumber)){
         uint8_t tempX = d->rooms[currentRoomNumber].position[dim_x] +
@@ -1034,9 +1035,9 @@ static uint32_t initializeMonsters(dungeon_t *d,int numMonsters){
         uint8_t tempY = d->rooms[currentRoomNumber].position[dim_y] +
           rand()%(d->rooms[currentRoomNumber].size[dim_y]);
         if(d->characters[tempY][tempX]==NULL){
-          newCharacter.x = tempX;
-          newCharacter.y = tempY;
-          d->characters[newCharacter.y][newCharacter.x] = &newCharacter;
+          newCharacter->x = tempX;
+          newCharacter->y = tempY;
+          d->characters[newCharacter->y][newCharacter->x] = newCharacter;
         }
       }
       currentRoomNumber++;
