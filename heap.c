@@ -15,6 +15,8 @@ struct heap_node {
   uint32_t mark;
 };
 
+
+
 #define swap(a, b) ({    \
   typeof (a) _tmp = (a); \
   (a) = (b);             \

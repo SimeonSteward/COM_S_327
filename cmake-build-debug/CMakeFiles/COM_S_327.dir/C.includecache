@@ -33,6 +33,8 @@ assert.h
 -
 errno.h
 -
+math.h
+-
 heap.h
 /home/student/code/COM_S_327/heap.h
 

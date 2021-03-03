@@ -9,6 +9,7 @@
 #include <sys/time.h>
 #include <assert.h>
 #include <errno.h>
+#include <math.h>
 
 #include "heap.h"
 
@@ -42,13 +43,33 @@ typedef struct pathfinder_path {
   int32_t cost;
 } pathfinder_path_t;
 
+typedef struct pc{
+  //TODO
+}pc_t;
+
+typedef struct npc{
+  uint8_t monster_type;
+  //TODO
+
+}npc_t;
+typedef struct character{
+  pc_t * pc;
+  npc_t * npc;
+  uint32_t next_turn;
+  uint8_t sequence_num;
+  uint8_t speed;
+  uint8_t x,y;
+  uint8_t isAlive;
+
+}character_t;
+
 typedef enum dim {
   dim_x,
   dim_y,
   num_dims
 } dim_t;
 
-typedef int8_t pair_t[num_dims];
+typedef int8_t pair_t[num_dims];//Use pair[dim_y] or pair[dim_x]
 
 #define DUNGEON_X              80
 #define DUNGEON_Y              21
@@ -60,7 +81,7 @@ typedef int8_t pair_t[num_dims];
 #define ROOM_MAX_Y             15
 #define SAVE_DIR               ".rlg327"
 #define DUNGEON_SAVE_FILE      "dungeon"
-#define DUNGEON_SAVE_SEMANTIC  "RLG327-" TERM
+#define DUNGEON_SAVE_SEMANTIC  "RLG327-S2021"
 #define DUNGEON_SAVE_VERSION   0U
 
 #define mappair(pair) (d->map[pair[dim_y]][pair[dim_x]])
@@ -104,9 +125,28 @@ typedef struct dungeon {
   uint8_t hardness[DUNGEON_Y][DUNGEON_X];
   uint8_t distance[DUNGEON_Y][DUNGEON_X];
   uint8_t tunnel[DUNGEON_Y][DUNGEON_X];
+  character_t * characters[DUNGEON_Y][DUNGEON_X];
   pair_t pc;
 } dungeon_t;
 
+static uint32_t pc_in_room(dungeon_t *d, int16_t roomNumber){
+  if(roomNumber>=d->num_rooms) {
+    printf("Error:Invalid room does not exist");
+    exit(-1);
+  }
+  if ((d->pc[dim_x] >= d->rooms[roomNumber].position[dim_x]) &&
+      (d->pc[dim_x] < (d->rooms[roomNumber].position[dim_x] + d->rooms[roomNumber].size[dim_x])) &&
+      (d->pc[dim_y] >= d->rooms[roomNumber].position[dim_y]) &&
+      (d->pc[dim_y] < (d->rooms[roomNumber].position[dim_y] + d->rooms[roomNumber].size[dim_y]))) {
+    return 1;
+  }
+  return 0;
+
+}
+
+/*
+ *Checks whether a given position is in a room
+ */
 static uint32_t in_room(dungeon_t *d, int16_t y, int16_t x)
 {
   int i;
@@ -142,7 +182,14 @@ static int32_t corridor_path_cmp(const void *key, const void *with) {
 static int32_t pathfinder_path_cmp(const void *key, const void *with) {
   return ((pathfinder_path_t *) key)->cost - ((pathfinder_path_t *) with)->cost;
 }
-
+static int32_t character_cmp(const void *key, const void *with) {
+  int32_t return_val;
+  return_val = ((character_t *) key)->next_turn - ((character_t *) with)->next_turn;
+  if(!return_val){
+    return_val = ((character_t *) key)->sequence_num - ((character_t *) with)->sequence_num;
+  }
+  return return_val;
+}
 static void dijkstra_pathfinder(dungeon_t *d)
 {
   static pathfinder_path_t path[DUNGEON_Y][DUNGEON_X], *p;
@@ -949,6 +996,49 @@ int gen_dungeon(dungeon_t *d)
   return 0;
 }
 
+static uint32_t initializeMonsters(dungeon_t *d,int numMonsters){
+  for (int y = 0; y < DUNGEON_Y; y++) {
+    for (int x = 0; x < DUNGEON_X; x++) {
+      d->characters[y][x] = NULL;
+    }
+  }
+  int numSpawnSpaces = 0;
+  for(int i = 0;i<d->num_rooms;i++){
+    if(!in_room(d,d->pc[dim_y],d->pc[dim_x])){
+      numSpawnSpaces+=(d->rooms[i].size[dim_y])*(d->rooms[i].size[dim_x]); 
+    }
+  }
+  numMonsters = (numMonsters > numSpawnSpaces) ? numMonsters : numSpawnSpaces;
+  for(int i =0;i<numMonsters;i++){
+    npc_t newMonster;
+    newMonster.monster_type = rand()&0xf;
+    character_t newCharacter;
+    newCharacter.npc = &newMonster;
+    newCharacter.pc = NULL;
+    newCharacter.next_turn = 0;
+    newCharacter.sequence_num = i+2;
+    newCharacter.isAlive = 1;
+    newCharacter.speed = rand()%15+5;
+    newCharacter.x = 255;
+    newCharacter.y = 255;
+    int currentRoomNumber = 0;
+    while(newCharacter.x==255){
+      currentRoomNumber %= d->num_rooms;
+      if(!pc_in_room(d,currentRoomNumber)){
+        uint8_t tempX = d->rooms[currentRoomNumber].position[dim_x] +
+          rand()%(d->rooms[currentRoomNumber].size[dim_x]);
+        uint8_t tempY = d->rooms[currentRoomNumber].position[dim_y] +
+          rand()%(d->rooms[currentRoomNumber].size[dim_y]);
+        if(d->characters[tempY][tempX]==NULL){
+          newCharacter.x = tempX;
+          newCharacter.y = tempY;
+          d->characters[newCharacter.y][newCharacter.x] = &newCharacter;
+        }
+      }
+    }
+  }
+  return 0;
+}
 void render_dungeon(dungeon_t *d)
 {
   pair_t p;
@@ -957,7 +1047,10 @@ void render_dungeon(dungeon_t *d)
     for (p[dim_x] = 0; p[dim_x] < DUNGEON_X; p[dim_x]++) {
       if (d->pc[dim_x] == p[dim_x] && d->pc[dim_y] == p[dim_y]) {
         putchar('@');
-      } else {
+      } else if(d->characters[p[dim_y]][p[dim_x]]!=NULL){
+        printf("%X",d->characters[p[dim_y]][p[dim_x]]->npc->monster_type);
+
+      } else{
         switch (mappair(p)) {
         case ter_wall:
         case ter_wall_immutable:
@@ -1537,8 +1630,10 @@ int main(int argc, char *argv[])
   char *save_file;
   char *load_file;
   char *pgm_file;
+  int numMonsters = 10;//TODO add numMonsters to function modifiers
 
   UNUSED(in_room); /* Suppress warning */
+  UNUSED(character_cmp);
 
   /* Default behavior: Seed with the time, generate a new dungeon, *
    * and don't write to disk.                                      */
@@ -1659,6 +1754,7 @@ int main(int argc, char *argv[])
     d.pc[dim_x] = d.rooms[0].position[dim_x];
     d.pc[dim_y] = d.rooms[0].position[dim_y];
   }
+  initializeMonsters(&d,numMonsters);
 
   dijkstra_pathfinder(&d);
   dijkstra_pathfinder_tunneling(&d);
