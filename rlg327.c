@@ -58,7 +58,6 @@ typedef struct pc{
 typedef struct npc{
   uint8_t monster_type;
   pair_t lastSeenPC;
-  //TODO
 
 }npc_t;
 
@@ -77,7 +76,7 @@ typedef struct character{
 
 
 
-#define DEBUG                  1
+#define DEBUG                  0
 #define DUNGEON_X              80
 #define DUNGEON_Y              21
 #define MIN_ROOMS              6
@@ -1987,7 +1986,7 @@ int main(int argc, char *argv[])
   dijkstra_pathfinder_tunneling(&d);
   render_dungeon(&d);
 //  render_distance(&d);
-  render_tunnel(&d);
+  // render_tunnel(&d);
 
 
   if (do_save) {
@@ -2015,7 +2014,7 @@ int main(int argc, char *argv[])
   }
 
   while(1){
-     usleep(1*1000000);
+     usleep(1*300000);
      moveUntilPlayer(&d);
 
     // moveCharacter(&d,player);

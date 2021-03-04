@@ -17,3 +17,7 @@ use $make to compile the program
 --save/-s saves to HOME/.rlg327/dungeon
 
 --rand/-r <seed> creates a new dungeon from the specified seed
+
+--nummon/-n <numMonsters> creates the dungeon with the specified number of monsters up to the maximum amount of space
+            in the rooms which the pc is not in
+            default is 10

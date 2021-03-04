@@ -11,11 +11,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f3e837c-6e2b-4d44-8ea5-379993080f3e" name="Default Changelist" comment="fixed monster generation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6f3e837c-6e2b-4d44-8ea5-379993080f3e" name="Default Changelist" comment="1.04 Submitted">
+      <change afterPath="$PROJECT_DIR$/00.rlg327" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04.tar.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/CHANGELOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/heap.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/heap.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/rlg327.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/COM_S_327" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rlg327.c" beforeDir="false" afterPath="$PROJECT_DIR$/rlg327.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +76,7 @@
       <workItem from="1614824703790" duration="4802000" />
       <workItem from="1614829542475" duration="2238000" />
       <workItem from="1614831807671" duration="787000" />
-      <workItem from="1614894994685" duration="706000" />
+      <workItem from="1614894994685" duration="1442000" />
     </task>
     <task id="LOCAL-00001" summary="added create monster script, gets stuck in infinte loop">
       <created>1614793378873</created>
@@ -92,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614808837934</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ready to submit">
+      <created>1614895734047</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614895734047</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,14 +128,16 @@
     <MESSAGE value="added create monster script, gets stuck in infinte loop" />
     <MESSAGE value="fixed the cmake file" />
     <MESSAGE value="fixed monster generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed monster generation" />
+    <MESSAGE value="Ready to submit" />
+    <MESSAGE value="1.04 Submitted" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.04 Submitted" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/rlg327.c</url>
-          <line>1991</line>
+          <line>1990</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
