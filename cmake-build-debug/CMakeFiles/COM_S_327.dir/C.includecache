@@ -35,6 +35,8 @@ errno.h
 -
 math.h
 -
+unistd.h
+-
 heap.h
 /home/student/code/COM_S_327/heap.h
 

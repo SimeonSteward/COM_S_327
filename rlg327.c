@@ -1,6 +1,3 @@
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "readability-redundant-control-flow"
-#pragma ide diagnostic ignored "cert-msc50-cpp"
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -13,6 +10,7 @@
 #include <assert.h>
 #include <errno.h>
 #include <math.h>
+#include <unistd.h>
 
 #include "heap.h"
 
@@ -27,11 +25,19 @@
 # define rand_range(min, max) ((rand() % (((max) + 1) - (min))) + (min))
 # define UNUSED(f) ((void) f)
 
+
 #define malloc(size) ({          \
   void *_tmp;                    \
   assert((_tmp = malloc(size))); \
   _tmp;                          \
 })
+typedef enum dim {
+    dim_x,
+    dim_y,
+    num_dims
+} dim_t;
+
+typedef int8_t pair_t[num_dims];//Use pair[dim_y] or pair[dim_x]
 
 typedef struct corridor_path {
   heap_node_t *hn;
@@ -47,33 +53,31 @@ typedef struct pathfinder_path {
 } pathfinder_path_t;
 
 typedef struct pc{
-  //TODO
 }pc_t;
 
 typedef struct npc{
   uint8_t monster_type;
+  pair_t lastSeenPC;
   //TODO
 
 }npc_t;
+
 typedef struct character{
   pc_t * pc;
   npc_t * npc;
   uint32_t next_turn;
   uint8_t sequence_num;
   uint8_t speed;
-  uint8_t x,y;
+  //uint8_t x,y;
+  pair_t pos;
   uint8_t isAlive;
 
 }character_t;
 
-typedef enum dim {
-  dim_x,
-  dim_y,
-  num_dims
-} dim_t;
 
-typedef int8_t pair_t[num_dims];//Use pair[dim_y] or pair[dim_x]
 
+
+#define DEBUG                  1
 #define DUNGEON_X              80
 #define DUNGEON_Y              21
 #define MIN_ROOMS              6
@@ -86,6 +90,10 @@ typedef int8_t pair_t[num_dims];//Use pair[dim_y] or pair[dim_x]
 #define DUNGEON_SAVE_FILE      "dungeon"
 #define DUNGEON_SAVE_SEMANTIC  "RLG327-S2021"
 #define DUNGEON_SAVE_VERSION   0U
+#define BIT_SMART 0x1
+#define BIT_TELEPATH 0x2
+#define BIT_TUNNELING 0x4
+#define BIT_ERATIC 0x8
 
 #define mappair(pair) (d->map[pair[dim_y]][pair[dim_x]])
 #define mapxy(x, y) (d->map[y][x])
@@ -129,6 +137,8 @@ typedef struct dungeon {
   uint8_t distance[DUNGEON_Y][DUNGEON_X];
   uint8_t tunnel[DUNGEON_Y][DUNGEON_X];
   character_t * characters[DUNGEON_Y][DUNGEON_X];
+  heap_t * charHeap;
+  character_t *player;
   pair_t pc;
 } dungeon_t;
 
@@ -357,72 +367,72 @@ static void dijkstra_pathfinder_tunneling(dungeon_t *d)
     //y-1 x #1
        if ((path[p->pos[dim_y] - 1][p->pos[dim_x]    ].hn) &&
         (path[p->pos[dim_y] - 1][p->pos[dim_x]    ].cost >
-         p->cost + hardnesspair(p->pos)/85+1)) {
+         p->cost + (hardnesspair(p->pos)+84)/85+1)) {
       path[p->pos[dim_y] - 1][p->pos[dim_x]    ].cost =
-        p->cost + hardnesspair(p->pos)/85+1;
+        p->cost + (hardnesspair(p->pos)+84)/85+1;
            heap_decrease_key_no_replace(&h, path[p->pos[dim_y] - 1]
                                            [p->pos[dim_x]    ].hn);
     }
     //y x-1 #2
     if ((path[p->pos[dim_y]    ][p->pos[dim_x] - 1].hn) &&
         (path[p->pos[dim_y]    ][p->pos[dim_x] - 1].cost >
-         p->cost + hardnesspair(p->pos)/85+1)) {
+         p->cost + (hardnesspair(p->pos)+84)/85+1)) {
       path[p->pos[dim_y]    ][p->pos[dim_x] - 1].cost =
-        p->cost + hardnesspair(p->pos)/85+1;
+        p->cost + (hardnesspair(p->pos)+84)/85+1;
            heap_decrease_key_no_replace(&h, path[p->pos[dim_y]    ]
                                            [p->pos[dim_x] - 1].hn);
     }
     //y x+1 #3
     if ((path[p->pos[dim_y]    ][p->pos[dim_x] + 1].hn) &&
         (path[p->pos[dim_y]    ][p->pos[dim_x] + 1].cost >
-         p->cost + hardnesspair(p->pos)/85+1)) {
+         p->cost + (hardnesspair(p->pos)+84)/85+1)) {
       path[p->pos[dim_y]    ][p->pos[dim_x] + 1].cost =
-        p->cost + hardnesspair(p->pos)/85+1;
+        p->cost + (hardnesspair(p->pos)+84)/85+1;
            heap_decrease_key_no_replace(&h, path[p->pos[dim_y]    ]
                                            [p->pos[dim_x] + 1].hn);
     }
     //y+1 x #4
     if ((path[p->pos[dim_y] + 1][p->pos[dim_x]    ].hn) &&
         (path[p->pos[dim_y] + 1][p->pos[dim_x]    ].cost >
-         p->cost + hardnesspair(p->pos)/85+1)) {
+         p->cost + (hardnesspair(p->pos)+84)/85+1)) {
       path[p->pos[dim_y] + 1][p->pos[dim_x]    ].cost =
-        p->cost + hardnesspair(p->pos)/85+1;
+        p->cost + (hardnesspair(p->pos)+84)/85+1;
            heap_decrease_key_no_replace(&h, path[p->pos[dim_y] + 1]
                                            [p->pos[dim_x]    ].hn);
     }
     //y-1 x - 1#5
        if ((path[p->pos[dim_y] - 1][p->pos[dim_x] - 1].hn) &&
         (path[p->pos[dim_y] - 1][p->pos[dim_x] - 1].cost >
-         p->cost + hardnesspair(p->pos)/85+1)) {
+         p->cost + (hardnesspair(p->pos)+84)/85+1)) {
       path[p->pos[dim_y] - 1][p->pos[dim_x] - 1].cost =
-        p->cost + hardnesspair(p->pos)/85+1;
+        p->cost + (hardnesspair(p->pos)+84)/85+1;
            heap_decrease_key_no_replace(&h, path[p->pos[dim_y] - 1]
                                            [p->pos[dim_x] - 1].hn);
     }
     //y + 1 x-1 #6
     if ((path[p->pos[dim_y] + 1][p->pos[dim_x] - 1].hn) &&
         (path[p->pos[dim_y] + 1][p->pos[dim_x] - 1].cost >
-         p->cost + hardnesspair(p->pos)/85+1)) {
+         p->cost + (hardnesspair(p->pos)+84)/85+1)) {
       path[p->pos[dim_y] + 1][p->pos[dim_x] - 1].cost =
-        p->cost + hardnesspair(p->pos)/85+1;
+        p->cost + (hardnesspair(p->pos)+84)/85+1;
            heap_decrease_key_no_replace(&h, path[p->pos[dim_y] + 1]
                                            [p->pos[dim_x] - 1].hn);
     }
     //y - 1 x+1 #7
     if ((path[p->pos[dim_y] - 1][p->pos[dim_x] + 1].hn) &&
         (path[p->pos[dim_y] - 1][p->pos[dim_x] + 1].cost >
-         p->cost + hardnesspair(p->pos)/85+1)) {
+         p->cost + (hardnesspair(p->pos)+84)/85+1)) {
       path[p->pos[dim_y] - 1][p->pos[dim_x] + 1].cost =
-        p->cost + hardnesspair(p->pos)/85+1;
+        p->cost + (hardnesspair(p->pos)+84)/85+1;
            heap_decrease_key_no_replace(&h, path[p->pos[dim_y] - 1]
                                            [p->pos[dim_x] + 1].hn);
     }
     //y + 1 x + 1 #8
     if ((path[p->pos[dim_y] + 1][p->pos[dim_x] + 1].hn) &&
         (path[p->pos[dim_y] + 1][p->pos[dim_x] + 1].cost >
-         p->cost + hardnesspair(p->pos)/85+1)) {
+         p->cost + (hardnesspair(p->pos)+84)/85+1)) {
       path[p->pos[dim_y] + 1][p->pos[dim_x] + 1].cost =
-        p->cost + hardnesspair(p->pos)/85+1;
+        p->cost + (hardnesspair(p->pos)+84)/85+1;
            heap_decrease_key_no_replace(&h, path[p->pos[dim_y] + 1]
                                            [p->pos[dim_x] + 1].hn);
     }
@@ -999,35 +1009,52 @@ int gen_dungeon(dungeon_t *d)
   return 0;
 }
 
-static uint32_t initializeMonsters(dungeon_t *d,int numMonsters){
+static int initializeCharacters(dungeon_t *d, int numMonsters){
+    d->charHeap = malloc(sizeof(heap_t));
+  heap_init(d->charHeap, character_cmp, NULL);
   for (int y = 0; y < DUNGEON_Y; y++) {
     for (int x = 0; x < DUNGEON_X; x++) {
       d->characters[y][x] = NULL;
     }
   }
+  //Insert Player Character
+    d->player = malloc(sizeof (character_t));
+    d->player->isAlive = 1;
+    d->player->pc = malloc(sizeof(pc_t));
+    d->player->speed = 10;
+    d->player->pos[dim_x]=d->pc[dim_x];
+    d->player->pos[dim_y]=d->pc[dim_y];
+    d->player->sequence_num=1;
+    d->player->next_turn = 0;
+    d->player->npc=NULL;
+    heap_insert(d->charHeap,d->player);
+    d->characters[d->player->pos[dim_y]][d->player->pos[dim_x]] = d->player;
+
+
   int numSpawnSpaces = 0;
   for(int i = 0;i<d->num_rooms;i++){
-    if(!in_room(d,d->pc[dim_y],d->pc[dim_x])){
+    if(!pc_in_room(d,i)){
       numSpawnSpaces+=(d->rooms[i].size[dim_y])*(d->rooms[i].size[dim_x]); 
     }
   }
-  numMonsters = (numMonsters > numSpawnSpaces) ? numMonsters : numSpawnSpaces;
+  numMonsters = (numMonsters < numSpawnSpaces) ? numMonsters : numSpawnSpaces;
     int currentRoomNumber = 0;
     for(int i =0;i<numMonsters;i++){
         npc_t *newMonster;
         newMonster = malloc(sizeof(npc_t));
-        newMonster->monster_type = rand()&0xf;
-        character_t *newCharacter = malloc(sizeof newCharacter);
+          newMonster->monster_type = rand()&0xf; //TODO
+          //newMonster->monster_type = 7;//testcode
+        character_t *newCharacter = malloc(sizeof (character_t));
         newCharacter->npc = newMonster;
     newCharacter->pc = NULL;
     newCharacter->next_turn = 0;
     newCharacter->sequence_num = i+2;
     newCharacter->isAlive = 1;
     newCharacter->speed = rand()%15+5;
-    newCharacter->x = 255;
-    newCharacter->y = 255;
+    newCharacter->pos[dim_x] = -1;
+    newCharacter->pos[dim_y] = -1;
 
-    while(newCharacter->x==255){
+    while(newCharacter->pos[dim_x]==-1){
       currentRoomNumber %= d->num_rooms;
       if(!pc_in_room(d,currentRoomNumber)){
         uint8_t tempX = d->rooms[currentRoomNumber].position[dim_x] +
@@ -1035,9 +1062,10 @@ static uint32_t initializeMonsters(dungeon_t *d,int numMonsters){
         uint8_t tempY = d->rooms[currentRoomNumber].position[dim_y] +
           rand()%(d->rooms[currentRoomNumber].size[dim_y]);
         if(d->characters[tempY][tempX]==NULL){
-          newCharacter->x = tempX;
-          newCharacter->y = tempY;
-          d->characters[newCharacter->y][newCharacter->x] = newCharacter;
+          newCharacter->pos[dim_x] = tempX;
+          newCharacter->pos[dim_y] = tempY;
+          heap_insert(d->charHeap,newCharacter);
+          d->characters[newCharacter->pos[dim_y]][newCharacter->pos[dim_x]] = newCharacter;
         }
       }
       currentRoomNumber++;
@@ -1045,11 +1073,184 @@ static uint32_t initializeMonsters(dungeon_t *d,int numMonsters){
   }
   return 0;
 }
+static int canSeePC(dungeon_t *d,character_t *c){
+  int x = c->pos[dim_x]; 
+  int y = c->pos[dim_y];
+  int i;
+  int roomNum;
+  for (i = 0; i < d->num_rooms; i++) {
+    if ((x >= d->rooms[i].position[dim_x]) &&
+        (x < (d->rooms[i].position[dim_x] + d->rooms[i].size[dim_x])) &&
+        (y >= d->rooms[i].position[dim_y]) &&
+        (y < (d->rooms[i].position[dim_y] + d->rooms[i].size[dim_y]))) {
+      roomNum = i;
+      break;
+    }
+  }
+  return pc_in_room(d,roomNum);
+
+
+}
+static int findDir(int8_t *x, int8_t *y){
+    switch(rand()%8){
+        case 0 :
+            *y = 1;
+            *x = -1;
+            break;
+        case 1 :
+            *y = 1;
+            *x = 0;
+            break;
+        case 2 :
+            *y = 1;
+            *x = 1;
+            break;
+        case 3 :
+            *y = 0;
+            *x = -1;
+            break;
+        case 4 :
+            *y = 0;
+            *x = 1;
+            break;
+        case 5 :
+            *y = -1;
+            *x = -1;
+            break;
+        case 6 :
+            *y = -1;
+            *x = 0;
+            break;
+        case 7 :
+            *y = -1;
+            *x = 1;
+            break;
+    }
+    return 0;
+}
+static int moveCharacter(dungeon_t *d,character_t *character){
+    if(character->npc==NULL){
+    //TODO do pc things
+    }else{
+        uint8_t hardnessThreshold = 0;
+        if(character->npc->monster_type&BIT_TUNNELING){
+            hardnessThreshold = 254;
+        }
+        int8_t x=0;
+        int8_t y=0;
+        if(character->npc->monster_type&BIT_ERATIC&&rand()&1){
+            int success = 0;
+            while(!success){
+                findDir(&x,&y);
+                if(d->hardness[character->pos[dim_y]+y][character->pos[dim_x]+x]<=hardnessThreshold) {
+
+                    success = 1;
+                }
+            }
+        }else if(character->npc->monster_type&BIT_TELEPATH||canSeePC(d,character)){
+          if(character->npc->monster_type&BIT_SMART){
+            x=0;
+            y=0;
+            if(character->npc->monster_type&BIT_TUNNELING){
+              for(int i=-1;i<=1;i++){
+                for(int j=-1;j<=1;j++){
+                  if(d->tunnel[character->pos[dim_y]+i][character->pos[dim_x]+j]+
+                     ((d->hardness[character->pos[dim_y]+i][character->pos[dim_x]+j])+84)/85<
+                     d->tunnel[character->pos[dim_y]+y][character->pos[dim_x]+x]+
+                     (d->hardness[character->pos[dim_y]+i][character->pos[dim_x]+j]+84)/85){
+                    x = j;
+                    y = i;
+                  }
+                }
+              }
+            }else{
+              for(int i=-1;i<=1;i++){
+                for(int j=-1;j<=1;j++){
+                  if(d->distance[character->pos[dim_y]+i][character->pos[dim_x]+j]<
+                               d->distance[character->pos[dim_y]+y][character->pos[dim_x]+x]){
+                    x = j;
+                    y = i;
+                  }
+                }
+                    }
+            }
+            
+          }else{
+            if(character->pos[dim_y]>d->player->pos[dim_y]){
+                y=-1;
+            }else if(character->pos[dim_y]<d->player->pos[dim_y]){
+              y=1;
+            }
+            if(character->pos[dim_x]>d->player->pos[dim_x]){
+                x=-1;
+            }else if(character->pos[dim_x]<d->player->pos[dim_x]){
+              x=1;
+            }
+            if(d->hardness[character->pos[dim_y]+y][character->pos[dim_x]+x]>hardnessThreshold) {
+              x = 0; y = 0;
+            }
+          }
+        }else{
+          
+        }
+        if (d->hardness[character->pos[dim_y] + y][character->pos[dim_x] + x] != 0) {
+            if (d->hardness[character->pos[dim_y] + y][character->pos[dim_x] + x] < 85) {
+                d->hardness[character->pos[dim_y] + y][character->pos[dim_x] + x] = 0;
+                d->map[character->pos[dim_y]+y][character->pos[dim_x]+x]=ter_floor_hall;
+            } else {
+                d->hardness[character->pos[dim_y] + y][character->pos[dim_x] + x] -= 85;
+            }
+            x = 0;
+            y = 0;
+        }
+        if(x!=0||y!=0){
+            d->characters[character->pos[dim_y]][character->pos[dim_x]]=NULL;
+            if(d->characters[character->pos[dim_y]+y][character->pos[dim_x]+x]!=NULL){
+                d->characters[character->pos[dim_y]+y][character->pos[dim_x]+x]->isAlive=0;
+                if(d->characters[character->pos[dim_y]+y][character->pos[dim_x]+x]->pc!=NULL){
+                  printf("\n Haha you lost luser\n");
+                  exit(0);
+                }
+            }
+            d->characters[character->pos[dim_y]+y][character->pos[dim_x]+x]=character;
+            character->pos[dim_x]+=x;
+            character->pos[dim_y]+=y;
+        }
+
+    }
+    return 0;
+}
+static int moveUntilPlayer(dungeon_t *d){
+
+  dijkstra_pathfinder(d);
+  dijkstra_pathfinder_tunneling(d);
+  do{
+      character_t *currentChar = (character_t *)(heap_remove_min(d->charHeap));
+      if(currentChar->isAlive){
+          moveCharacter(d,currentChar);
+          currentChar->next_turn+=(1000/currentChar->speed);
+          heap_insert(d->charHeap,currentChar);
+      }else{
+        free(currentChar);
+      }
+  } while(((character_t *)heap_peek_min(d->charHeap))->pc==NULL);
+  return 0;
+  
+}
+
 void render_dungeon(dungeon_t *d)
 {
   pair_t p;
+  if(DEBUG){
+      for(int i = 0; i<DUNGEON_X;i++){
+          printf("%d",i%10);
+      }
+  }
 
   for (p[dim_y] = 0; p[dim_y] < DUNGEON_Y; p[dim_y]++) {
+      if(DEBUG){
+          printf("%d",p[dim_y]%10);
+      }
     for (p[dim_x] = 0; p[dim_x] < DUNGEON_X; p[dim_x]++) {
       if (d->pc[dim_x] == p[dim_x] && d->pc[dim_y] == p[dim_y]) {
         putchar('@');
@@ -1084,8 +1285,17 @@ void render_dungeon(dungeon_t *d)
         }
       }
     }
+    if(DEBUG){
+      printf("%d",p[dim_y]%10);
+    }
     putchar('\n');
   }
+  if(DEBUG){
+        for(int i = 0; i<DUNGEON_X;i++){
+            printf("%d",i%10);
+        }
+    }
+  putchar('\n');
 }
 void render_distance(dungeon_t *d)
 {
@@ -1147,8 +1357,6 @@ int write_dungeon_map(dungeon_t *d, FILE *f)
   return 0;
 }
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "cert-str34-c"
 int write_rooms(dungeon_t *d, FILE *f)
 {
   uint32_t i;
@@ -1170,7 +1378,6 @@ int write_rooms(dungeon_t *d, FILE *f)
 
   return 0;
 }
-#pragma clang diagnostic pop
 
 uint16_t count_up_stairs(dungeon_t *d)
 {
@@ -1394,8 +1601,6 @@ int read_stairs(dungeon_t *d, FILE *f)
   return 0;
 }
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "cert-str34-c"
 int read_rooms(dungeon_t *d, FILE *f)
 {
   uint32_t i;
@@ -1453,7 +1658,6 @@ int read_rooms(dungeon_t *d, FILE *f)
 
   return 0;
 }
-#pragma clang diagnostic pop
 
 int read_dungeon(dungeon_t *d, char *file)
 {
@@ -1642,7 +1846,7 @@ int main(int argc, char *argv[])
   char *save_file;
   char *load_file;
   char *pgm_file;
-  int numMonsters = 10;//TODO add numMonsters to function modifiers
+  int numMonsters = 10;
 
   UNUSED(in_room); /* Suppress warning */
   UNUSED(character_cmp);
@@ -1730,6 +1934,17 @@ int main(int argc, char *argv[])
             pgm_file = argv[++i];
           }
           break;
+        case 'n':
+          if ((!long_arg && argv[i][2]) ||
+              (long_arg && strcmp(argv[i], "-nummon"))) {
+            usage(argv[0]);
+          }
+          if ((argc > i + 1) && argv[i + 1][0] != '-') {
+            /* There is another argument, and it's not a switch, so *
+             * we'll treat it as a number of monsters*/
+            numMonsters = atoi(argv[++i]);
+          }
+          break;
         default:
           usage(argv[0]);
         }
@@ -1766,13 +1981,14 @@ int main(int argc, char *argv[])
     d.pc[dim_x] = d.rooms[0].position[dim_x];
     d.pc[dim_y] = d.rooms[0].position[dim_y];
   }
-  initializeMonsters(&d,numMonsters);
+    initializeCharacters(&d, numMonsters);
 
   dijkstra_pathfinder(&d);
   dijkstra_pathfinder_tunneling(&d);
   render_dungeon(&d);
-  render_distance(&d);
+//  render_distance(&d);
   render_tunnel(&d);
+
 
   if (do_save) {
     if (do_save_seed) {
@@ -1798,9 +2014,15 @@ int main(int argc, char *argv[])
     }
   }
 
+  while(1){
+     usleep(1*1000000);
+     moveUntilPlayer(&d);
+
+    // moveCharacter(&d,player);
+     render_dungeon(&d);
+  }
   delete_dungeon(&d);
 
   return 0;
 }
 
-#pragma clang diagnostic pop
