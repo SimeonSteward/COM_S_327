@@ -1,0 +1,23 @@
+rlg327 Version 1.03 2/25/2021
+--------Author(s)---------
+Simeon Steward simeon@iastate.edu
+
+forked from Jeremy Sheaffer 1.02 solution code.
+
+
+--------Usage notes--------
+use $make to compile the program
+
+./rlg327 runs the program
+
+--load/-l <filename> loads a file from the working directory
+--save/-s <filename> saves a file to the working directory
+
+--load/-l loads HOME/.rlg327/dungeon
+--save/-s saves to HOME/.rlg327/dungeon
+
+--rand/-r <seed> creates a new dungeon from the specified seed
+
+--nummon/-n <numMonsters> creates the dungeon with the specified number of monsters up to the maximum amount of space
+            in the rooms which the pc is not in
+            default is 10
