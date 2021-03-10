@@ -3,7 +3,6 @@
 #include <sys/time.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <ncurses.h>
 
 #include "dungeon.h"
 #include "pc.h"
@@ -74,13 +73,6 @@ void usage(char *name)
   exit(-1);
 }
 
-void io_init_terminal(){
-  initscr();
-  raw();
-  noecho();
-  curs_set(0);
-  keypad(stdscr, TRUE);
-}
 int main(int argc, char *argv[])
 {
   dungeon_t d;
@@ -231,7 +223,6 @@ int main(int argc, char *argv[])
   }
 
   /* Ignoring PC position in saved dungeons.  Not a bug. */
-  io_init_terminal();
   config_pc(&d);
   gen_monsters(&d);
 
@@ -269,8 +260,6 @@ int main(int argc, char *argv[])
     }
   }
 
-  clear();
-  endwin();
   printf("%s", pc_is_alive(&d) ? victory : tombstone);
   printf("You defended your life in the face of %u deadly beasts.\n"
          "You avenged the cruel and untimely murders of %u "
@@ -280,6 +269,6 @@ int main(int argc, char *argv[])
   pc_delete(d.pc.pc);
 
   delete_dungeon(&d);
-  
+
   return 0;
 }

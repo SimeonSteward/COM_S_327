@@ -11,20 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f3e837c-6e2b-4d44-8ea5-379993080f3e" name="Default Changelist" comment="1.04 Submitted">
-      <change afterPath="$PROJECT_DIR$/00.rlg327" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04.tar.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/CHANGELOG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/heap.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/heap.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Submissions/Simeon_Steward.assignment-1.04/rlg327.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/COM_S_327" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rlg327.c" beforeDir="false" afterPath="$PROJECT_DIR$/rlg327.c" afterDir="false" />
-    </list>
+    <list default="true" id="6f3e837c-6e2b-4d44-8ea5-379993080f3e" name="Default Changelist" comment="added gitignore" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +63,7 @@
       <workItem from="1614824703790" duration="4802000" />
       <workItem from="1614829542475" duration="2238000" />
       <workItem from="1614831807671" duration="787000" />
-      <workItem from="1614894994685" duration="1442000" />
+      <workItem from="1614894994685" duration="1814000" />
     </task>
     <task id="LOCAL-00001" summary="added create monster script, gets stuck in infinte loop">
       <created>1614793378873</created>
@@ -106,7 +93,28 @@
       <option name="project" value="LOCAL" />
       <updated>1614895734047</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1.04 Submitted">
+      <created>1614896760964</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1614896760964</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1.04 Submitted">
+      <created>1614896776455</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614896776455</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added gitignore">
+      <created>1614896817495</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1614896817495</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +138,8 @@
     <MESSAGE value="fixed monster generation" />
     <MESSAGE value="Ready to submit" />
     <MESSAGE value="1.04 Submitted" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.04 Submitted" />
+    <MESSAGE value="added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
