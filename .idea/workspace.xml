@@ -1,17 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
+      <config projectName="COM_S_327" targetName="clobber" />
+      <config projectName="COM_S_327" targetName="all" />
       <config projectName="COM_S_327" targetName="COM_S_327" />
+      <config projectName="COM_S_327" targetName="etags" />
+      <config projectName="COM_S_327" targetName="rlg327" />
     </generated>
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f3e837c-6e2b-4d44-8ea5-379993080f3e" name="Default Changelist" comment="added gitignore" />
+    <list default="true" id="6f3e837c-6e2b-4d44-8ea5-379993080f3e" name="Default Changelist" comment="forked from profs 1.04 and changed to use curses rather than stdio">
+      <change beforePath="$PROJECT_DIR$/.idea/COM_S_327.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/COM_S_327.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/character.o" beforeDir="false" afterPath="$PROJECT_DIR$/character.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/COM_S_327.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/COM_S_327" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/COM_S_327" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/COM_S_327.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/COM_S_327.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dungeon.h" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dungeon.o" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event.o" beforeDir="false" afterPath="$PROJECT_DIR$/event.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.c" beforeDir="false" afterPath="$PROJECT_DIR$/move.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.o" beforeDir="false" afterPath="$PROJECT_DIR$/move.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/npc.c" beforeDir="false" afterPath="$PROJECT_DIR$/npc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/npc.h" beforeDir="false" afterPath="$PROJECT_DIR$/npc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/npc.o" beforeDir="false" afterPath="$PROJECT_DIR$/npc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/path.o" beforeDir="false" afterPath="$PROJECT_DIR$/path.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pc.c" beforeDir="false" afterPath="$PROJECT_DIR$/pc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pc.d" beforeDir="false" afterPath="$PROJECT_DIR$/pc.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pc.o" beforeDir="false" afterPath="$PROJECT_DIR$/pc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rlg327" beforeDir="false" afterPath="$PROJECT_DIR$/rlg327" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rlg327.o" beforeDir="false" afterPath="$PROJECT_DIR$/rlg327.o" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +66,11 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -32,6 +82,33 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="COM_S_327" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="COM_S_327" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectId" id="1ouiO76ovi9RZ6lI9Ru0RPBwbPh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -42,13 +119,48 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Makefile" />
+    <property name="settings.editor.selected.configurable" value="build.tools" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="CMake Application.COM_S_327">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="COM_S_327" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="clobber" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="COM_S_327" TARGET_NAME="clobber" CONFIG_NAME="clobber" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="etags" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="COM_S_327" TARGET_NAME="etags" CONFIG_NAME="etags" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rlg327" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="COM_S_327" TARGET_NAME="rlg327" CONFIG_NAME="rlg327" version="1" RUN_PATH="$PROJECT_DIR$/rlg327">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="COM_S_327" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--nummon 1000" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="COM_S_327" TARGET_NAME="COM_S_327" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="COM_S_327" RUN_TARGET_NAME="COM_S_327">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.COM_S_327" />
+      <item itemvalue="Makefile Application.all" />
+      <item itemvalue="Makefile Application.clobber" />
+      <item itemvalue="Makefile Application.etags" />
+      <item itemvalue="Makefile Application.rlg327" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -64,6 +176,9 @@
       <workItem from="1614829542475" duration="2238000" />
       <workItem from="1614831807671" duration="787000" />
       <workItem from="1614894994685" duration="1814000" />
+      <workItem from="1615338476371" duration="1192000" />
+      <workItem from="1615427985845" duration="3141000" />
+      <workItem from="1615497510087" duration="1126000" />
     </task>
     <task id="LOCAL-00001" summary="added create monster script, gets stuck in infinte loop">
       <created>1614793378873</created>
@@ -114,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614896817495</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="forked from profs 1.04 and changed to use curses rather than stdio">
+      <created>1615338522501</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615338522501</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,18 +261,10 @@
     <MESSAGE value="Ready to submit" />
     <MESSAGE value="1.04 Submitted" />
     <MESSAGE value="added gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
+    <MESSAGE value="forked from profs 1.04 and changed to use curses rather than stdio" />
+    <option name="LAST_COMMIT_MESSAGE" value="forked from profs 1.04 and changed to use curses rather than stdio" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/rlg327.c</url>
-          <line>1990</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression=" *pathfinding+(character-&gt;pos[dim_y])+i)*DUNGEON_X+character-&gt;pos[dim_x]+j" language="ObjectiveC" />

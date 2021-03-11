@@ -476,3 +476,8 @@ uint32_t dungeon_has_npcs(dungeon_t *d)
 {
   return d->num_monsters;
 }
+
+void relative_pos_to_pc(dungeon_t *d,character_t *c, pair_t *p){
+  (*p)[dim_y] = d->pc.position[dim_y]-(c->position[dim_y]);
+  (*p)[dim_x] = d->pc.position[dim_x]-(c->position[dim_x]);
+}

@@ -16,7 +16,7 @@
 
 void do_combat(dungeon_t *d, character_t *atk, character_t *def)
 {
-  if (def->alive) {
+  if (def!=NULL&&def->alive) {
     def->alive = 0;
     if (def != &d->pc) {
       d->num_monsters--;
@@ -104,6 +104,7 @@ void do_moves(dungeon_t *d)
     e->c = NULL;
     event_delete(e);
     pc_next_pos(d, next);
+    if(!d->virgin){
     next[dim_x] += c->position[dim_x];
     next[dim_y] += c->position[dim_y];
     if (mappair(next) <= ter_floor) {
@@ -111,7 +112,7 @@ void do_moves(dungeon_t *d)
       hardnesspair(next) = 0;
     }
     move_character(d, c, next);
-
+    }
     dijkstra(d);
     dijkstra_tunnel(d);
   }

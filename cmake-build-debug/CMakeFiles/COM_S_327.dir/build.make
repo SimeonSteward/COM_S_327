@@ -103,19 +103,141 @@ CMakeFiles/COM_S_327.dir/heap.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/heap.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/heap.c -o CMakeFiles/COM_S_327.dir/heap.c.s
 
+CMakeFiles/COM_S_327.dir/character.c.o: CMakeFiles/COM_S_327.dir/flags.make
+CMakeFiles/COM_S_327.dir/character.c.o: ../character.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/COM_S_327.dir/character.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/character.c.o   -c /home/student/code/COM_S_327/character.c
+
+CMakeFiles/COM_S_327.dir/character.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/character.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/character.c > CMakeFiles/COM_S_327.dir/character.c.i
+
+CMakeFiles/COM_S_327.dir/character.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/character.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/character.c -o CMakeFiles/COM_S_327.dir/character.c.s
+
+CMakeFiles/COM_S_327.dir/event.c.o: CMakeFiles/COM_S_327.dir/flags.make
+CMakeFiles/COM_S_327.dir/event.c.o: ../event.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/COM_S_327.dir/event.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/event.c.o   -c /home/student/code/COM_S_327/event.c
+
+CMakeFiles/COM_S_327.dir/event.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/event.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/event.c > CMakeFiles/COM_S_327.dir/event.c.i
+
+CMakeFiles/COM_S_327.dir/event.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/event.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/event.c -o CMakeFiles/COM_S_327.dir/event.c.s
+
+CMakeFiles/COM_S_327.dir/dungeon.c.o: CMakeFiles/COM_S_327.dir/flags.make
+CMakeFiles/COM_S_327.dir/dungeon.c.o: ../dungeon.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/COM_S_327.dir/dungeon.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/dungeon.c.o   -c /home/student/code/COM_S_327/dungeon.c
+
+CMakeFiles/COM_S_327.dir/dungeon.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/dungeon.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/dungeon.c > CMakeFiles/COM_S_327.dir/dungeon.c.i
+
+CMakeFiles/COM_S_327.dir/dungeon.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/dungeon.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/dungeon.c -o CMakeFiles/COM_S_327.dir/dungeon.c.s
+
+CMakeFiles/COM_S_327.dir/move.c.o: CMakeFiles/COM_S_327.dir/flags.make
+CMakeFiles/COM_S_327.dir/move.c.o: ../move.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/COM_S_327.dir/move.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/move.c.o   -c /home/student/code/COM_S_327/move.c
+
+CMakeFiles/COM_S_327.dir/move.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/move.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/move.c > CMakeFiles/COM_S_327.dir/move.c.i
+
+CMakeFiles/COM_S_327.dir/move.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/move.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/move.c -o CMakeFiles/COM_S_327.dir/move.c.s
+
+CMakeFiles/COM_S_327.dir/npc.c.o: CMakeFiles/COM_S_327.dir/flags.make
+CMakeFiles/COM_S_327.dir/npc.c.o: ../npc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/COM_S_327.dir/npc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/npc.c.o   -c /home/student/code/COM_S_327/npc.c
+
+CMakeFiles/COM_S_327.dir/npc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/npc.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/npc.c > CMakeFiles/COM_S_327.dir/npc.c.i
+
+CMakeFiles/COM_S_327.dir/npc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/npc.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/npc.c -o CMakeFiles/COM_S_327.dir/npc.c.s
+
+CMakeFiles/COM_S_327.dir/pc.c.o: CMakeFiles/COM_S_327.dir/flags.make
+CMakeFiles/COM_S_327.dir/pc.c.o: ../pc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/COM_S_327.dir/pc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/pc.c.o   -c /home/student/code/COM_S_327/pc.c
+
+CMakeFiles/COM_S_327.dir/pc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/pc.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/pc.c > CMakeFiles/COM_S_327.dir/pc.c.i
+
+CMakeFiles/COM_S_327.dir/pc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/pc.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/pc.c -o CMakeFiles/COM_S_327.dir/pc.c.s
+
+CMakeFiles/COM_S_327.dir/path.c.o: CMakeFiles/COM_S_327.dir/flags.make
+CMakeFiles/COM_S_327.dir/path.c.o: ../path.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/COM_S_327.dir/path.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/path.c.o   -c /home/student/code/COM_S_327/path.c
+
+CMakeFiles/COM_S_327.dir/path.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/path.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/path.c > CMakeFiles/COM_S_327.dir/path.c.i
+
+CMakeFiles/COM_S_327.dir/path.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/path.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/path.c -o CMakeFiles/COM_S_327.dir/path.c.s
+
+CMakeFiles/COM_S_327.dir/utils.c.o: CMakeFiles/COM_S_327.dir/flags.make
+CMakeFiles/COM_S_327.dir/utils.c.o: ../utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/COM_S_327.dir/utils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/COM_S_327.dir/utils.c.o   -c /home/student/code/COM_S_327/utils.c
+
+CMakeFiles/COM_S_327.dir/utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/COM_S_327.dir/utils.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/code/COM_S_327/utils.c > CMakeFiles/COM_S_327.dir/utils.c.i
+
+CMakeFiles/COM_S_327.dir/utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/COM_S_327.dir/utils.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/code/COM_S_327/utils.c -o CMakeFiles/COM_S_327.dir/utils.c.s
+
 # Object files for target COM_S_327
 COM_S_327_OBJECTS = \
 "CMakeFiles/COM_S_327.dir/rlg327.c.o" \
-"CMakeFiles/COM_S_327.dir/heap.c.o"
+"CMakeFiles/COM_S_327.dir/heap.c.o" \
+"CMakeFiles/COM_S_327.dir/character.c.o" \
+"CMakeFiles/COM_S_327.dir/event.c.o" \
+"CMakeFiles/COM_S_327.dir/dungeon.c.o" \
+"CMakeFiles/COM_S_327.dir/move.c.o" \
+"CMakeFiles/COM_S_327.dir/npc.c.o" \
+"CMakeFiles/COM_S_327.dir/pc.c.o" \
+"CMakeFiles/COM_S_327.dir/path.c.o" \
+"CMakeFiles/COM_S_327.dir/utils.c.o"
 
 # External object files for target COM_S_327
 COM_S_327_EXTERNAL_OBJECTS =
 
 COM_S_327: CMakeFiles/COM_S_327.dir/rlg327.c.o
 COM_S_327: CMakeFiles/COM_S_327.dir/heap.c.o
+COM_S_327: CMakeFiles/COM_S_327.dir/character.c.o
+COM_S_327: CMakeFiles/COM_S_327.dir/event.c.o
+COM_S_327: CMakeFiles/COM_S_327.dir/dungeon.c.o
+COM_S_327: CMakeFiles/COM_S_327.dir/move.c.o
+COM_S_327: CMakeFiles/COM_S_327.dir/npc.c.o
+COM_S_327: CMakeFiles/COM_S_327.dir/pc.c.o
+COM_S_327: CMakeFiles/COM_S_327.dir/path.c.o
+COM_S_327: CMakeFiles/COM_S_327.dir/utils.c.o
 COM_S_327: CMakeFiles/COM_S_327.dir/build.make
+COM_S_327: /usr/lib/x86_64-linux-gnu/libcurses.so
+COM_S_327: /usr/lib/x86_64-linux-gnu/libform.so
 COM_S_327: CMakeFiles/COM_S_327.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable COM_S_327"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/code/COM_S_327/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable COM_S_327"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/COM_S_327.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

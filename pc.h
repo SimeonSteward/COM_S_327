@@ -1,6 +1,8 @@
 #ifndef PC_H
 # define PC_H
 
+# define MENU_SIZE 10
+
 # include <stdint.h>
 
 # include "dims.h"

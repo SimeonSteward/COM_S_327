@@ -6,37 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/student/code/COM_S_327/heap.h
-stdint.h
--
-
-/home/student/code/COM_S_327/rlg327.c
-stdio.h
--
-stdint.h
--
-stdlib.h
--
+/home/student/code/COM_S_327/utils.c
 string.h
--
-endian.h
 -
 sys/stat.h
 -
 sys/types.h
 -
-limits.h
--
-sys/time.h
--
-assert.h
--
 errno.h
 -
-math.h
+stdio.h
 -
-unistd.h
+utils.h
+/home/student/code/COM_S_327/utils.h
+
+/home/student/code/COM_S_327/utils.h
+assert.h
 -
-heap.h
-/home/student/code/COM_S_327/heap.h
+stdlib.h
+-
 

@@ -143,6 +143,87 @@ COM_S_327/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/build
 .PHONY : COM_S_327/fast
 
+character.o: character.c.o
+
+.PHONY : character.o
+
+# target to build an object file
+character.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/character.c.o
+.PHONY : character.c.o
+
+character.i: character.c.i
+
+.PHONY : character.i
+
+# target to preprocess a source file
+character.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/character.c.i
+.PHONY : character.c.i
+
+character.s: character.c.s
+
+.PHONY : character.s
+
+# target to generate assembly for a file
+character.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/character.c.s
+.PHONY : character.c.s
+
+dungeon.o: dungeon.c.o
+
+.PHONY : dungeon.o
+
+# target to build an object file
+dungeon.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/dungeon.c.o
+.PHONY : dungeon.c.o
+
+dungeon.i: dungeon.c.i
+
+.PHONY : dungeon.i
+
+# target to preprocess a source file
+dungeon.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/dungeon.c.i
+.PHONY : dungeon.c.i
+
+dungeon.s: dungeon.c.s
+
+.PHONY : dungeon.s
+
+# target to generate assembly for a file
+dungeon.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/dungeon.c.s
+.PHONY : dungeon.c.s
+
+event.o: event.c.o
+
+.PHONY : event.o
+
+# target to build an object file
+event.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/event.c.o
+.PHONY : event.c.o
+
+event.i: event.c.i
+
+.PHONY : event.i
+
+# target to preprocess a source file
+event.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/event.c.i
+.PHONY : event.c.i
+
+event.s: event.c.s
+
+.PHONY : event.s
+
+# target to generate assembly for a file
+event.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/event.c.s
+.PHONY : event.c.s
+
 heap.o: heap.c.o
 
 .PHONY : heap.o
@@ -169,6 +250,114 @@ heap.s: heap.c.s
 heap.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/heap.c.s
 .PHONY : heap.c.s
+
+move.o: move.c.o
+
+.PHONY : move.o
+
+# target to build an object file
+move.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/move.c.o
+.PHONY : move.c.o
+
+move.i: move.c.i
+
+.PHONY : move.i
+
+# target to preprocess a source file
+move.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/move.c.i
+.PHONY : move.c.i
+
+move.s: move.c.s
+
+.PHONY : move.s
+
+# target to generate assembly for a file
+move.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/move.c.s
+.PHONY : move.c.s
+
+npc.o: npc.c.o
+
+.PHONY : npc.o
+
+# target to build an object file
+npc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/npc.c.o
+.PHONY : npc.c.o
+
+npc.i: npc.c.i
+
+.PHONY : npc.i
+
+# target to preprocess a source file
+npc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/npc.c.i
+.PHONY : npc.c.i
+
+npc.s: npc.c.s
+
+.PHONY : npc.s
+
+# target to generate assembly for a file
+npc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/npc.c.s
+.PHONY : npc.c.s
+
+path.o: path.c.o
+
+.PHONY : path.o
+
+# target to build an object file
+path.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/path.c.o
+.PHONY : path.c.o
+
+path.i: path.c.i
+
+.PHONY : path.i
+
+# target to preprocess a source file
+path.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/path.c.i
+.PHONY : path.c.i
+
+path.s: path.c.s
+
+.PHONY : path.s
+
+# target to generate assembly for a file
+path.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/path.c.s
+.PHONY : path.c.s
+
+pc.o: pc.c.o
+
+.PHONY : pc.o
+
+# target to build an object file
+pc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/pc.c.o
+.PHONY : pc.c.o
+
+pc.i: pc.c.i
+
+.PHONY : pc.i
+
+# target to preprocess a source file
+pc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/pc.c.i
+.PHONY : pc.c.i
+
+pc.s: pc.c.s
+
+.PHONY : pc.s
+
+# target to generate assembly for a file
+pc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/pc.c.s
+.PHONY : pc.c.s
 
 rlg327.o: rlg327.c.o
 
@@ -197,6 +386,33 @@ rlg327.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/rlg327.c.s
 .PHONY : rlg327.c.s
 
+utils.o: utils.c.o
+
+.PHONY : utils.o
+
+# target to build an object file
+utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/utils.c.o
+.PHONY : utils.c.o
+
+utils.i: utils.c.i
+
+.PHONY : utils.i
+
+# target to preprocess a source file
+utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/utils.c.i
+.PHONY : utils.c.i
+
+utils.s: utils.c.s
+
+.PHONY : utils.s
+
+# target to generate assembly for a file
+utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/COM_S_327.dir/build.make CMakeFiles/COM_S_327.dir/utils.c.s
+.PHONY : utils.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -206,12 +422,36 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... COM_S_327"
+	@echo "... character.o"
+	@echo "... character.i"
+	@echo "... character.s"
+	@echo "... dungeon.o"
+	@echo "... dungeon.i"
+	@echo "... dungeon.s"
+	@echo "... event.o"
+	@echo "... event.i"
+	@echo "... event.s"
 	@echo "... heap.o"
 	@echo "... heap.i"
 	@echo "... heap.s"
+	@echo "... move.o"
+	@echo "... move.i"
+	@echo "... move.s"
+	@echo "... npc.o"
+	@echo "... npc.i"
+	@echo "... npc.s"
+	@echo "... path.o"
+	@echo "... path.i"
+	@echo "... path.s"
+	@echo "... pc.o"
+	@echo "... pc.i"
+	@echo "... pc.s"
 	@echo "... rlg327.o"
 	@echo "... rlg327.i"
 	@echo "... rlg327.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 .PHONY : help
 
 

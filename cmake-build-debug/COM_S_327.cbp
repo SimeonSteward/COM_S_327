@@ -76,13 +76,61 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/student/code/COM_S_327/character.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/character.h">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/dungeon.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/dungeon.h">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/event.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/event.h">
+			<Option target="COM_S_327"/>
+		</Unit>
 		<Unit filename="/home/student/code/COM_S_327/heap.c">
 			<Option target="COM_S_327"/>
 		</Unit>
 		<Unit filename="/home/student/code/COM_S_327/heap.h">
 			<Option target="COM_S_327"/>
 		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/move.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/move.h">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/npc.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/npc.h">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/path.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/path.h">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/pc.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/pc.h">
+			<Option target="COM_S_327"/>
+		</Unit>
 		<Unit filename="/home/student/code/COM_S_327/rlg327.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/utils.c">
+			<Option target="COM_S_327"/>
+		</Unit>
+		<Unit filename="/home/student/code/COM_S_327/utils.h">
 			<Option target="COM_S_327"/>
 		</Unit>
 		<Unit filename="/home/student/code/COM_S_327/CMakeLists.txt">

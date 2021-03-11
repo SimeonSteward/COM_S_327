@@ -20,7 +20,7 @@
 #define MAX_MONSTERS           15
 #define SAVE_DIR               ".rlg327"
 #define DUNGEON_SAVE_FILE      "dungeon"
-#define DUNGEON_SAVE_SEMANTIC  "RLG327-" TERM
+#define DUNGEON_SAVE_SEMANTIC  "RLG327-S2021"
 #define DUNGEON_SAVE_VERSION   0U
 
 #define mappair(pair) (d->map[pair[dim_y]][pair[dim_x]])
@@ -75,6 +75,7 @@ typedef struct dungeon {
    * information from the current event.                                   */
   uint32_t time;
   uint32_t is_new;
+  uint32_t virgin;
 } dungeon_t;
 
 void init_dungeon(dungeon_t *d);
