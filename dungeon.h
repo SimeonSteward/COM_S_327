@@ -5,6 +5,7 @@
 # include "dims.h"
 # include "character.h"
 
+
 #define DUNGEON_X              80
 #define DUNGEON_Y              21
 #define MIN_ROOMS              6
@@ -16,12 +17,13 @@
 #define VISUAL_RANGE           15
 #define PC_SPEED               10
 #define NPC_MIN_SPEED          5
-#define NPC_MAX_SPEED          15
+#define NPC_MAX_SPEED          20
 #define MAX_MONSTERS           15
 #define SAVE_DIR               ".rlg327"
 #define DUNGEON_SAVE_FILE      "dungeon"
-#define DUNGEON_SAVE_SEMANTIC  "RLG327-S2021"
+#define DUNGEON_SAVE_SEMANTIC  "RLG327-" TERM
 #define DUNGEON_SAVE_VERSION   0U
+#define PC_VISION              3
 
 #define mappair(pair) (d->map[pair[dim_y]][pair[dim_x]])
 #define mapxy(x, y) (d->map[y][x])
@@ -29,6 +31,7 @@
 #define hardnessxy(x, y) (d->hardness[y][x])
 #define charpair(pair) (d->character[pair[dim_y]][pair[dim_x]])
 #define charxy(x, y) (d->character[y][x])
+#define seenxy(x, y) (d->pc_seen[y][x])
 
 typedef enum __attribute__ ((__packed__)) terrain_type {
   ter_debug,
@@ -42,15 +45,20 @@ typedef enum __attribute__ ((__packed__)) terrain_type {
   ter_stairs_down
 } terrain_type_t;
 
-typedef struct room {
+class room_t {
+ public:
   pair_t position;
   pair_t size;
-} room_t;
+} ;
 
-typedef struct dungeon {
+class dungeon_t {
+ public:
   uint32_t num_rooms;
   room_t *rooms;
   terrain_type_t map[DUNGEON_Y][DUNGEON_X];
+
+  terrain_type_t pc_seen[DUNGEON_Y][DUNGEON_X];
+  uint8_t fog_of_war;
   /* Since hardness is usually not used, it would be expensive to pull it *
    * into cache every time we need a map cell, so we store it in a        *
    * parallel array, rather than using a structure to represent the       *
@@ -75,19 +83,15 @@ typedef struct dungeon {
    * information from the current event.                                   */
   uint32_t time;
   uint32_t is_new;
-  uint32_t virgin;
-} dungeon_t;
+  uint32_t quit;
+} ;
 
 void init_dungeon(dungeon_t *d);
+void new_dungeon(dungeon_t *d);
 void delete_dungeon(dungeon_t *d);
 int gen_dungeon(dungeon_t *d);
-void render_dungeon(dungeon_t *d);
 int write_dungeon(dungeon_t *d, char *file);
 int read_dungeon(dungeon_t *d, char *file);
 int read_pgm(dungeon_t *d, char *pgm);
-void render_distance_map(dungeon_t *d);
-void render_tunnel_distance_map(dungeon_t *d);
-void render_hardness_map(dungeon_t *d);
-void render_movement_cost_map(dungeon_t *d);
 
 #endif

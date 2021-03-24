@@ -1,4 +1,16 @@
-/snap/clion/139/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/student/code/COM_S_327
+/snap/clion/145/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/student/code/COM_S_327
 -- Configuring done
--- Generating done
--- Build files have been written to: /home/student/code/COM_S_327/cmake-build-debug
+CMake Error at CMakeLists.txt:12 (add_executable):
+  Cannot find source file:
+
+    rlg327.c
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:12 (add_executable):
+  No SOURCES given to target: COM_S_327
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

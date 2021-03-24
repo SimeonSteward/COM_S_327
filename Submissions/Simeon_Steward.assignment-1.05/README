@@ -1,0 +1,48 @@
+rlg327 Version 1.03 2/25/2021
+--------Author(s)---------
+Simeon Steward simeon@iastate.edu
+
+forked from Jeremy Sheaffer 1.02 solution code.
+
+
+--------Usage notes--------
+use $make to compile the program
+
+./rlg327 runs the program
+
+--load/-l <filename> loads a file from the working directory
+--save/-s <filename> saves a file to the working directory
+
+--load/-l loads HOME/.rlg327/dungeon
+--save/-s saves to HOME/.rlg327/dungeon
+
+--rand/-r <seed> creates a new dungeon from the specified seed
+
+--nummon/-n <numMonsters> creates the dungeon with the specified number of monsters up to the maximum amount of space
+            in the rooms which the pc is not in
+            default is 10
+
+
+--------Controls---------
+7 or y:         move upper left
+8 or k:         move up
+9 or u:         move upper right
+6 or l:         move right
+3 or n:         move move low right
+2 or j:         move down
+1 or b:         move low left
+4 or h:         move left
+>     :         go down stairs
+<     :         go up stairs
+5/sp/.:         rest
+m     :         open monster menu
+up    :         arrow scroll up monster list
+down  :         arrow scroll down monster list
+escape:         exit monster list
+Q or q:         quit
+
+
+--------Bugs---------
+@ sign renders in the top left corner
+
+character doesn't render directly after going up or down stairs

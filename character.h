@@ -4,11 +4,8 @@
 # include <stdint.h>
 
 # include "dims.h"
-
-typedef struct dungeon dungeon_t;
-typedef struct npc npc_t;
-typedef struct pc pc_t;
-typedef struct dice_t dice_t;
+# include "npc.h"
+# include "pc.h"
 
 typedef enum kill_type {
   kill_direct,
@@ -16,7 +13,8 @@ typedef enum kill_type {
   num_kill_types
 } kill_type_t;
 
-typedef struct character {
+class character_t {
+ public:
   char symbol;
   pair_t position;
   int32_t speed;
@@ -32,7 +30,8 @@ typedef struct character {
   npc_t *npc;
   pc_t *pc;
   uint32_t kills[num_kill_types];
-} character_t;
+};
+
 
 int32_t compare_characters_by_next_turn(const void *character1,
                                         const void *character2);

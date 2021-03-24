@@ -1,0 +1,18 @@
+	3/11/2021 4:30 pm 1.05 submission
+	3/11/2021 3:55 pm bugfixes
+	3/10/2021 10:00 pm added stairs and menu
+	3/10/2021 10:00 am added user input
+	3/9/2021  10:00 pm converted everything to curses
+	3/9/2021  6:10 pm forked from proffesor 1.04 solution
+	3/4/2021  4:30 pm updated readme and submitted
+	3/4/2021  4:09 pm Added nummon switch, monster movement is debugged
+	3/3/2021  11:01 pm added monster movement
+	3/3/2021  4:09 pm added monster populator
+	3/1/2021  1:26 pm added monster node and monster compare
+	2/25/2021 2:30 pm compressed and submitted
+	2/25/2021 2:10 pm added README
+	2/25/2021 1:50 pm  checked against sample output (Correct no changes needed)
+	2/24/2021 8:00pm added tunneler dykstra
+	2/23/2021 11:00pm Solved seg fault
+	2/23/2021 8:00pm added dykstra for pathfinder, seg fault generated
+	2/23/2021 5:00pm Downloaded proffesor 1.02 solution
