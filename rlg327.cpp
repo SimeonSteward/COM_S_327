@@ -3,6 +3,8 @@
 #include <sys/time.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <iostream>
+#include <fstream>
 
 #include "dungeon.h"
 #include "pc.h"
@@ -10,6 +12,9 @@
 #include "move.h"
 #include "utils.h"
 #include "io.h"
+#include "dice.h"
+#include "mon_template.h"
+#include "parser.h"
 
 const char *victory =
   "\n                                       o\n"
@@ -76,10 +81,32 @@ void usage(char *name)
 
 int main(int argc, char *argv[])
 {
-  dungeon_t d;
+  
+  dungeon d;
+  // dice::dice d;
+  // d = dice("10+3d8");
+  //mon_template mon1 = mon_template();
+  //std::cout << mon1.to_string();
+  dice die("10+3d8");
+  std::cout << die.to_string() << std::endl;
+  std::ifstream monster_desc;
+  std::string home = getenv("HOME")+(std::string)"/.rlg327/monster_desc.txt";
+  //  std::string game_dir = ".rlg327";
+  //std::string load_file = "monster_desc.txt";
+  monster_desc.open(home,std::ifstream::in);
+  if(!monster_desc.is_open()){
+    std::cout << "FILE NOT OPENED" << std::endl;
+  }
+  parse_file(d,monster_desc);
+  for(size_t i = 0; i<d.monster_templates.size();i++){
+    std::cout << d.monster_templates[i].to_string();
+  }
+  std::cout << std::endl;
+  return 0;
+
   time_t seed;
   struct timeval tv;
-  int i;
+  int32_t i;
   uint32_t do_load, do_save, do_seed, do_image, do_save_seed, do_save_image;
   uint32_t long_arg;
   char *save_file;
@@ -87,7 +114,7 @@ int main(int argc, char *argv[])
   char *pgm_file;
   
   /* Quiet a false positive from valgrind. */
-  memset(&d, 0, sizeof (d));
+  //memset(&d, 0, sizeof (d));
   
   /* Default behavior: Seed with the time, generate a new dungeon, *
    * and don't write to disk.                                      */
@@ -228,7 +255,7 @@ int main(int argc, char *argv[])
   if (do_save) {
     if (do_save_seed) {
        /* 10 bytes for number, plus dot, extention and null terminator. */
-      save_file = (char*)malloc(18);
+      save_file = (char *) malloc(18);
       sprintf(save_file, "%ld.rlg327", seed);
     }
     if (do_save_image) {
@@ -237,7 +264,7 @@ int main(int argc, char *argv[])
 	do_save_image = 0;
       } else {
 	/* Extension of 3 characters longer than image extension + null. */
-        save_file = (char*)malloc(strlen(pgm_file) + 4);
+	save_file = (char *) malloc(strlen(pgm_file) + 4);
 	strcpy(save_file, pgm_file);
 	strcpy(strchr(save_file, '.') + 1, "rlg327");
       }
@@ -253,9 +280,14 @@ int main(int argc, char *argv[])
   printf("You defended your life in the face of %u deadly beasts.\n"
          "You avenged the cruel and untimely murders of %u "
          "peaceful dungeon residents.\n",
-         d.pc.kills[kill_direct], d.pc.kills[kill_avenged]);
+         d.PC->kills[kill_direct], d.PC->kills[kill_avenged]);
 
-  pc_delete(d.pc.pc);
+  if (pc_is_alive(&d)) {
+    /* If the PC is dead, it's in the move heap and will get automatically *
+     * deleted when the heap destructs.  In that case, we can't call       *
+     * delete_pc(), because it will lead to a double delete.               */
+    character_delete(d.PC);
+  }
 
   delete_dungeon(&d);
 
