@@ -76,6 +76,9 @@ void io_queue_message(const char *format, ...)
     io_tail = tmp;
   }
 }
+void io_queue_message(std::string s){
+  io_queue_message(s.c_str());
+}
 
 static void io_print_message_queue(uint32_t y, uint32_t x)
 {
@@ -217,9 +220,11 @@ void io_display(dungeon *d)
                   character_get_pos(d->PC),
                   character_get_pos(d->character_map[y][x]),
                   1, 0)) {
+        attron(COLOR_PAIR(d->character_map[y][x]->color));
        mvaddch(y + 1, x,
                 character_get_symbol(d->character_map[y][x]));
         visible_monsters++;
+        attroff(COLOR_PAIR(d->character_map[y][x]->color));
       } else {
         switch (pc_learned_terrain(d->PC, y, x)) {
         case ter_wall:
@@ -291,7 +296,10 @@ void io_display_no_fog(dungeon *d)
   for (y = 0; y < 21; y++) {
     for (x = 0; x < 80; x++) {
       if (d->character_map[y][x]) {
+
+        attron(COLOR_PAIR(d->character_map[y][x]->color));
         mvaddch(y + 1, x, d->character_map[y][x]->symbol);
+        attroff(COLOR_PAIR(d->character_map[y][x]->color));
       } else {
         switch (mapxy(x, y)) {
         case ter_wall:

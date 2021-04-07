@@ -3,8 +3,6 @@
 #include <sys/time.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <iostream>
-#include <fstream>
 
 #include "dungeon.h"
 #include "pc.h"
@@ -12,9 +10,6 @@
 #include "move.h"
 #include "utils.h"
 #include "io.h"
-#include "dice.h"
-#include "mon_template.h"
-#include "parser.h"
 
 const char *victory =
   "\n                                       o\n"
@@ -81,29 +76,7 @@ void usage(char *name)
 
 int main(int argc, char *argv[])
 {
-  
   dungeon d;
-  // dice::dice d;
-  // d = dice("10+3d8");
-  //mon_template mon1 = mon_template();
-  //std::cout << mon1.to_string();
-  dice die("10+3d8");
-  std::cout << die.to_string() << std::endl;
-  std::ifstream monster_desc;
-  std::string home = getenv("HOME")+(std::string)"/.rlg327/monster_desc.txt";
-  //  std::string game_dir = ".rlg327";
-  //std::string load_file = "monster_desc.txt";
-  monster_desc.open(home,std::ifstream::in);
-  if(!monster_desc.is_open()){
-    std::cout << "FILE NOT OPENED" << std::endl;
-  }
-  parse_file(d,monster_desc);
-  for(size_t i = 0; i<d.monster_templates.size();i++){
-    std::cout << d.monster_templates[i].to_string();
-  }
-  std::cout << std::endl;
-  return 0;
-
   time_t seed;
   struct timeval tv;
   int32_t i;
@@ -113,8 +86,9 @@ int main(int argc, char *argv[])
   char *load_file;
   char *pgm_file;
   
-  /* Quiet a false positive from valgrind. */
-  //memset(&d, 0, sizeof (d));
+  parse_descriptions(&d);
+  //print_descriptions(&d);
+
   
   /* Default behavior: Seed with the time, generate a new dungeon, *
    * and don't write to disk.                                      */

@@ -673,6 +673,7 @@ void delete_dungeon(dungeon *d)
 {
   free(d->rooms);
   heap_delete(&d->events);
+  destroy_descriptions(d);
   memset(d->character_map, 0, sizeof (d->character_map));
 }
 

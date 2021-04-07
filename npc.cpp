@@ -36,13 +36,12 @@ void gen_monsters(dungeon *d)
   npc *m;
   uint32_t room;
   pair_t p;
-  const static char symbol[] = "0123456789abcdef";
 
   d->num_monsters = min(d->max_monsters, max_monster_cells(d));
 
   for (i = 0; i < d->num_monsters; i++) {
     m = new npc;
-    memset(m, 0, sizeof (*m));
+    //memset(m, 0, sizeof (*m));
     
     do {
       room = rand_range(1, d->num_rooms - 1);
@@ -56,13 +55,40 @@ void gen_monsters(dungeon *d)
     m->position[dim_y] = p[dim_y];
     m->position[dim_x] = p[dim_x];
     d->character_map[p[dim_y]][p[dim_x]] = m;
-    m->speed = rand_range(5, 20);
+
+    bool need_description = true;
+    
+    monster_description *desc;
+
+    while(need_description){
+      desc = &(d->monster_descriptions[std::rand()%d->monster_descriptions.size()]);
+      if(desc->abilities&NPC_UNIQ){
+        for(size_t i = 0;i < d->dead_monsters.size();i++){
+          if(!(d->dead_monsters[i].compare(desc->name))){
+            break;
+          }
+        }
+      }
+      if((uint32_t)std::rand()%100>desc->rarity){
+        break;
+      }
+      need_description = 0;
+    }
+    //FIND random description
+    //check eligibilty
+    //check rarity
+    //m gets description's attributes
+    m->speed = desc->speed.roll();
     m->alive = 1;
     m->sequence_number = ++d->character_sequence_number;
-    m->characteristics = rand() & 0x0000000f;
+    m->characteristics = desc->abilities;
     /*    m->npc->characteristics = 0xf;*/
-    m->symbol = symbol[m->characteristics];
+    m->symbol = desc->symbol;
+    m->hitpoints = desc->hitpoints.roll();
+    m->damage = desc->damage;
     m->have_seen_pc = 0;
+    m->color = desc->color[0];
+    m->name = desc->name;
     m->kills[kill_direct] = m->kills[kill_avenged] = 0;
 
     d->character_map[p[dim_y]][p[dim_x]] = m;

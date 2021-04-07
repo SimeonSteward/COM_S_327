@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string>
+#include <iostream>
 
 #include "dungeon.h"
 #include "heap.h"
@@ -60,13 +62,11 @@ void do_combat(dungeon *d, character *atk, character *def)
       d->num_monsters--;
     } else {
       if ((part = rand() % (sizeof (organs) / sizeof (organs[0]))) < 26) {
-        io_queue_message("As the %c eats your %s, "
-                         "you wonder if there is an afterlife.",
-                         atk->symbol, organs[part]);
+        io_queue_message("As the %s eats your %s" 
+                         ", you wonder if there is an afterlife.",atk->name.c_str(), organs[part]);
       } else {
-        io_queue_message("Your last thoughts fade away as "
-                         "the %c eats your %s...",
-                         atk->symbol, organs[part]);
+        io_queue_message("Your last thoughts fade away as the %s eats your %s...", 
+                         atk->name.c_str(), organs[part]);
       }
       /* Queue an empty message, otherwise the game will not pause for *
        * player to see above.                                          */
@@ -76,9 +76,10 @@ void do_combat(dungeon *d, character *atk, character *def)
     atk->kills[kill_avenged] += (def->kills[kill_direct] +
                                   def->kills[kill_avenged]);
   }
+  d->dead_monsters.push_back(def->name);
 
   if (atk == d->PC) {
-    io_queue_message("You smite the %c!", def->symbol);
+    io_queue_message("You smite the %s!", def->name.c_str());
   }
 
   can_see_atk = can_see(d, character_get_pos(d->PC),
@@ -88,15 +89,15 @@ void do_combat(dungeon *d, character *atk, character *def)
 
   if (atk != d->PC && def != d->PC) {
     if (can_see_atk && !can_see_def) {
-      io_queue_message("The %c callously murders some poor, "
-                       "defenseless creature.", atk->symbol);
+      io_queue_message("The %s callously murders some poor, defenseless creature.", atk->name.c_str());
     }
     if (can_see_def && !can_see_atk) {
-      io_queue_message("Something kills the helpless %c.", def->symbol);
+      io_queue_message("Something kills the helpless %s.", def->name.c_str());
     }
     if (can_see_atk && can_see_def) {
-      io_queue_message("You watch in abject horror as the %c "
-                       "gruesomely murders the %c!", atk->symbol, def->symbol);
+      io_queue_message("You watch in abject horror as the %s gruesomely murders the %s!",
+                       atk->name.c_str(),  def->name.c_str());
+
     }
   }
 }

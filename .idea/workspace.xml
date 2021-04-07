@@ -14,7 +14,53 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f3e837c-6e2b-4d44-8ea5-379993080f3e" name="Default Changelist" comment="1.05 submission" />
+    <list default="true" id="6f3e837c-6e2b-4d44-8ea5-379993080f3e" name="Default Changelist" comment="1.05 submission">
+      <change beforePath="$PROJECT_DIR$/00.rlg327" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGS" beforeDir="false" afterPath="$PROJECT_DIR$/TAGS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/character.d" beforeDir="false" afterPath="$PROJECT_DIR$/character.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/character.h" beforeDir="false" afterPath="$PROJECT_DIR$/character.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/character.o" beforeDir="false" afterPath="$PROJECT_DIR$/character.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dice.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dice.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dice.d" beforeDir="false" afterPath="$PROJECT_DIR$/dice.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dice.h" beforeDir="false" afterPath="$PROJECT_DIR$/dice.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dice.o" beforeDir="false" afterPath="$PROJECT_DIR$/dice.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dungeon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dungeon.d" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dungeon.h" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dungeon.o" beforeDir="false" afterPath="$PROJECT_DIR$/dungeon.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event.d" beforeDir="false" afterPath="$PROJECT_DIR$/event.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event.o" beforeDir="false" afterPath="$PROJECT_DIR$/event.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/io.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/io.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/io.d" beforeDir="false" afterPath="$PROJECT_DIR$/io.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/io.h" beforeDir="false" afterPath="$PROJECT_DIR$/io.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/io.o" beforeDir="false" afterPath="$PROJECT_DIR$/io.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mon_template.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mon_template.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mon_template.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mon_template.h" beforeDir="false" afterPath="$PROJECT_DIR$/mon_template.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mon_template.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/move.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.d" beforeDir="false" afterPath="$PROJECT_DIR$/move.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/move.o" beforeDir="false" afterPath="$PROJECT_DIR$/move.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/npc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/npc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/npc.d" beforeDir="false" afterPath="$PROJECT_DIR$/npc.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/npc.h" beforeDir="false" afterPath="$PROJECT_DIR$/npc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/npc.o" beforeDir="false" afterPath="$PROJECT_DIR$/npc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/parser.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/path.d" beforeDir="false" afterPath="$PROJECT_DIR$/path.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/path.o" beforeDir="false" afterPath="$PROJECT_DIR$/path.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pc.d" beforeDir="false" afterPath="$PROJECT_DIR$/pc.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pc.o" beforeDir="false" afterPath="$PROJECT_DIR$/pc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rlg327" beforeDir="false" afterPath="$PROJECT_DIR$/rlg327" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rlg327.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/rlg327.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rlg327.d" beforeDir="false" afterPath="$PROJECT_DIR$/rlg327.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rlg327.o" beforeDir="false" afterPath="$PROJECT_DIR$/rlg327.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/valgrind" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,17 +133,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6f3e837c-6e2b-4d44-8ea5-379993080f3e" name="Default Changelist" comment="" />
-      <changelist id="" name="New changelist" comment="" />
       <created>1614142840584</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

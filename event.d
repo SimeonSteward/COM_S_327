@@ -1,2 +1,2 @@
-event.o: event.cpp event.h dungeon.h heap.h dims.h character.h \
- mon_template.h dice.h
+event.o: event.cpp event.h dungeon.h heap.h dims.h character.h dice.h \
+ descriptions.h
