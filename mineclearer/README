@@ -1,0 +1,28 @@
+Mineclearer Version 1.00 4/23/2021
+--------Author(s)---------
+Simeon Steward simeon@iastate.edu
+
+Referenced and borrowed RLG327 code from my 1.09 solution which is based on the proffesor Scheaffer's 1.08 solution  
+Based off of the classic game minesweeper
+--------Usage notes--------
+use $make to compile the program
+
+./minesweeper runs the program
+
+--numbomb <numBombs> creates the board with the specified number of bomb
+            default is 200
+
+
+--------Controls---------
+7 or y:         move upper left
+8 or k:         move up
+9 or u:         move upper right
+6 or l:         move right
+3 or n:         move move low right
+2 or j:         move down
+1 or b:         move low left
+4 or h:         move left
+Q or q:         quit
+f:              toggle flag
+g:              guess, if bomb is there, game over
+--------Bugs---------

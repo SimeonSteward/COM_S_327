@@ -1,0 +1,34 @@
+	4/8/2021  5:00 pm zipped and submitted
+	4/8/2021  4:29 pm decided that the objects are causing me to much trouble, so will have
+			submit without them
+	4/7/2021  5:11  pm progress on object generator
+	4/7/2021  10:00 am color implemented, monster from desc implemented
+	4/6/2021  10:00 am 1.07 solution downloaded
+	4/1/2021  4:00 pm readme updated,1.07 submission
+	4/1/2021  3:26 pm 1.07 done
+	3/31/2021 9:44 am parser done with minor bugs that I will get to tommorow
+	3/29/2021 9:37 am dice class fully functional, got started on mon_template
+	3/29/2021 8:58 am pulled profs 1.06 submission
+	3/24/2021 10:45 am updated readme and 1.06 submission
+	3/24/2021 10:16 am completed go-to/teleport
+	3/23/2021 9:11 am completed fog of war
+	3/22/2021 10:44 am converted all files to cpp and fixed errors
+	3/21/2021 3:30 pm pulled profs 1.05 submission
+	3/11/2021 4:30 pm 1.05 submission
+	3/11/2021 3:55 pm bugfixes
+	3/10/2021 10:00 pm added stairs and menu
+	3/10/2021 10:00 am added user input
+	3/9/2021  10:00 pm converted everything to curses
+	3/9/2021  6:10 pm forked from proffesor 1.04 solution
+	3/4/2021  4:30 pm updated readme and submitted
+	3/4/2021  4:09 pm Added nummon switch, monster movement is debugged
+	3/3/2021  11:01 pm added monster movement
+	3/3/2021  4:09 pm added monster populator
+	3/1/2021  1:26 pm added monster node and monster compare
+	2/25/2021 2:30 pm compressed and submitted
+	2/25/2021 2:10 pm added README
+	2/25/2021 1:50 pm  checked against sample output (Correct no changes needed)
+	2/24/2021 8:00pm added tunneler dykstra
+	2/23/2021 11:00pm Solved seg fault
+	2/23/2021 8:00pm added dykstra for pathfinder, seg fault generated
+	2/23/2021 5:00pm Downloaded proffesor 1.02 solution

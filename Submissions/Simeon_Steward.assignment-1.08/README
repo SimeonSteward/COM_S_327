@@ -1,0 +1,54 @@
+rlg327 Version 1.08 4/8/2021
+--------Author(s)---------
+Simeon Steward simeon@iastate.edu
+
+forked from Jeremy Sheaffer 1.07 solution code.
+
+
+--------Important----------
+
+Olny a partial implementation of 1.08, as the object display kept on giving me seg faults. I couldn't
+find where they were coming from, so I had to make it not display objects. If you look at the code,
+you will still find a mostly complete implementation of objects. Colors and monsters from descriptions
+work.
+--------Usage notes--------
+use $make to compile the program
+
+./rlg327 runs the program
+
+--load/-l <filename> loads a file from the working directory
+--save/-s <filename> saves a file to the working directory
+
+--load/-l loads HOME/.rlg327/dungeon
+--save/-s saves to HOME/.rlg327/dungeon
+
+--rand/-r <seed> creates a new dungeon from the specified seed
+
+--nummon/-n <numMonsters> creates the dungeon with the specified number of monsters up to the maximum amount of space
+            in the rooms which the pc is not in
+            default is 10
+
+
+--------Controls---------
+7 or y:         move upper left
+8 or k:         move up
+9 or u:         move upper right
+6 or l:         move right
+3 or n:         move move low right
+2 or j:         move down
+1 or b:         move low left
+4 or h:         move left
+>     :         go down stairs
+<     :         go up stairs
+5/sp/.:         rest
+m     :         open monster menu
+up    :         arrow scroll up monster list
+down  :         arrow scroll down monster list
+escape:         exit monster list
+Q or q:         quit
+f     :         toggle fog of war
+g     :         toggle goto mode 
+
+
+--------Bugs---------
+objects won't display properly

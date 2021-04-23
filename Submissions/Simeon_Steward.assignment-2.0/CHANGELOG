@@ -1,0 +1,5 @@
+4/23/2021  1:52  PM:	numbomb user input working, win/loss/quit message
+4/23/2021  11:59 AM:	Got auto reset working
+4/23/2021  9:58  AM:	Got 0 spread working
+4/22/2021  5:30  PM:	Cursor working, hidden visable maps
+4/21/2021  9:56  AM:	Setup board initialization and bomb proximity detection
